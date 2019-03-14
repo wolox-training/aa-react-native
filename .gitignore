@@ -1,0 +1,10 @@
+### MacOs Stuff ###
+.DS_Store
+
+### NPM Stuff ###
+node_modules/
+*node_modules/*
+
+### VSCode Stuff ###
+.vscode/
+settings.json
