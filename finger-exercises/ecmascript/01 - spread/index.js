@@ -19,3 +19,7 @@ export function copy(object) {
   }
   return { ...object };
 }
+
+export function reverseMerge(anArray, anotherArray) {
+  return [...anotherArray, ...anArray];
+}
