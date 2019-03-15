@@ -10,6 +10,6 @@ export function min(...num) {
   return Math.min(...num);
 }
 
-export function copy() {
-
+export function copy(object) {
+  return { ...object };
 }
