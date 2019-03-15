@@ -11,5 +11,11 @@ export function min(...num) {
 }
 
 export function copy(object) {
+  if (object === undefined) {
+    return object;
+  }
+  if (isArray(object)) {
+    return [...object];
+  }
   return { ...object };
 }
