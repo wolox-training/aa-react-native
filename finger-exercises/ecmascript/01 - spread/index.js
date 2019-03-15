@@ -23,3 +23,8 @@ export function copy(object) {
 export function reverseMerge(anArray, anotherArray) {
   return [...anotherArray, ...anArray];
 }
+
+export function filterAttribs(object) {
+  const { a, b, ...x } = object;
+  return { ...x };
+}
