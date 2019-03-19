@@ -5,7 +5,8 @@ import {black, grey} from '../../../constants/colors'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    paddingVertical: 15
   },
   name: {
       fontSize: 17,
@@ -19,6 +20,8 @@ export default StyleSheet.create({
     },
     image: {
         width: 40,
-        heigth: 60 
+        heigth: 60,
+        marginLeft: 30,
+        marginRight: 20
     }
 });

@@ -8,12 +8,14 @@ class Book extends Component {
         return (
             <View style={styles.container}>
                 <Image style={styles.image} source={require({imageSource})}/>
-                <Text style={styles.name}>
-                {name}
-                </Text>
-                <Text style={styles.author}>
-                {author}
-                </Text>
+                <View>
+                    <Text style={styles.name}>
+                    {name}
+                    </Text>
+                    <Text style={styles.author}>
+                    {author}
+                    </Text>
+                </View>
             </View>
           )
     }

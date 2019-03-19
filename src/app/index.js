@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, Text, View} from 'react-native';
+import {Book} from './components/Book';
 
 import styles from './styles';
 
@@ -14,9 +15,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!!!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Book name={'Test'} author={'TestAuthor'} imageSource={''}></Book>
       </View>
     );
   }
