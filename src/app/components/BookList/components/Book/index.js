@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, Text } from 'react-native';
 import styles from './styles';
-import  defaultImage from '../../assets/img_book6.png';
+import  defaultImage from '../../../../assets/img_book6.png';
 
 function Book({name, author, imageSource}) {
     return (
