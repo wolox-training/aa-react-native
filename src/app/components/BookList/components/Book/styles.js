@@ -20,6 +20,7 @@ export default StyleSheet.create({
   name: {
       fontSize: 17,
       color: black,
+      fontWeight: bold
     },
     author: {
       fontSize: 15,
