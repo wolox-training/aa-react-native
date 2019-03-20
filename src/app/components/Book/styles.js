@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { white, black, grey } from '../../../constants/colors';
+import { white, darkGray, grey } from '../../../constants/colors';
 
 
 export default StyleSheet.create({
@@ -11,7 +11,7 @@ export default StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10,
     opacity: 1,
-    shadowColor: black,
+    shadowColor: darkGray,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 1,
     shadowRadius: 1,
@@ -19,7 +19,7 @@ export default StyleSheet.create({
   },
   name: {
       fontSize: 17,
-      color: black,
+      color: darkGray,
       fontWeight: bold
     },
     author: {

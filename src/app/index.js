@@ -14,9 +14,9 @@ const instructions = Platform.select({
  
 class App extends Component {
   render() {
+    // TODO: Remove Test
     return (
       <View style={styles.container}> 
-        // TODO: Remove Test
         <Book name={'Test'} author={'TestAuthor'} imageSource={null}></Book>
         <Book name={'Test'} author={'TestAuthor'} imageSource={image} ></Book>
 
