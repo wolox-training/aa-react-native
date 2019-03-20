@@ -16,6 +16,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}> 
+        // TODO: Remove Test
         <Book name={'Test'} author={'TestAuthor'} imageSource={null}></Book>
         <Book name={'Test'} author={'TestAuthor'} imageSource={image} ></Book>
 
@@ -25,3 +26,4 @@ class App extends Component {
 }
 
 export default App;
+
