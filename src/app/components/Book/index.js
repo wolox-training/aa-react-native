@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { View, Image, Text } from 'react-native';
 import styles from './styles';
-
 
 class Book extends Component {
     render() {
         const {name, author, imageSource} = this.props;
+        const defaultImage = require('../../assets/General/img_book1.png');
         return (
             <View style={styles.container}>
-                <Image style={styles.image} source={require({imageSource})}/>
+                <Image style={styles.image} source={imageSource||defaultImage}/>
                 <View>
                     <Text style={styles.name}>
                     {name}
@@ -20,3 +21,5 @@ class Book extends Component {
           )
     }
 }
+
+export default Book;

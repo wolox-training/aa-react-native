@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, Text, View} from 'react-native';
-import {Book} from './components/Book';
+import Book from './components/Book';
 
 import styles from './styles';
 
@@ -15,7 +15,9 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Book name={'Test'} author={'TestAuthor'} imageSource={''}></Book>
+        <Book name={'Test'} author={'TestAuthor'} imageSource={null}></Book>
+        <Book name={'Test'} author={'TestAuthor'} imageSource={{uri: 'https://wolox-training.s3.amazonaws.com/uploads/6942334-M.jpg'}} ></Book>
+
       </View>
     );
   }
