@@ -5,7 +5,7 @@ import styles from './styles';
 class Book extends Component {
     render() {
         const {name, author, imageSource} = this.props;
-        const defaultImage = require('../../assets/General/img_book1.png');
+        const defaultImage = require('../../assets/General/img_book6.png');
         return (
             <View style={styles.container}>
                 <Image style={styles.image} source={imageSource||defaultImage}/>
