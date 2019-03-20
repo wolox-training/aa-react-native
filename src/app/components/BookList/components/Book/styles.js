@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { white, black, grey } from '../../../../../constants/colors';
+import { white, darkGray, grey, black } from '../../../../../constants/colors';
 
 
 export default StyleSheet.create({
@@ -19,7 +19,7 @@ export default StyleSheet.create({
   },
   name: {
       fontSize: 17,
-      color: black,
+      color: darkGray,
       fontWeight: "bold"
     },
     author: {

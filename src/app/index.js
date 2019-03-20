@@ -7,6 +7,7 @@ import { books } from './books';
 
 class App extends Component {
   render() {
+    // TODO: Remove Test
     return (
       <View style={styles.container}> 
           <BookList books={books}/>
