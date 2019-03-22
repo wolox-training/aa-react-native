@@ -4,6 +4,9 @@ import { FlatList } from 'react-native';
 import Book from './components/Book';
 import { defaultBooks } from './books';
 import styles from './styles';
+import * as Routes from '../../../constants/routes'
+
+
 
 
 
@@ -15,7 +18,7 @@ class BookList extends Component {
   
   handlePressBook = () => {
     const {navigation} = this.props;
-    navigation.navigate('Dummy');
+    navigation.navigate(Routes.Dummy);
   }
 
   render() {
