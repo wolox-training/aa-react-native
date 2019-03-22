@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {backgroundColor} from '../constants/colors';
+import {backgroundColor} from '../../../constants/colors';
 
 
 export default StyleSheet.create({
