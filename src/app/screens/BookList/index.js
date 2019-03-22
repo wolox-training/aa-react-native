@@ -6,10 +6,6 @@ import { defaultBooks } from './books';
 import styles from './styles';
 import * as Routes from '../../../constants/routes'
 
-
-
-
-
 class BookList extends Component {
 
   renderItem = ({item}) =>  <Book name={item.title} author={item.author} imageSource={item.imageSource} onPress={this.handlePressBook}/>;
@@ -18,7 +14,7 @@ class BookList extends Component {
   
   handlePressBook = () => {
     const {navigation} = this.props;
-    navigation.navigate(Routes.Dummy);
+    navigation.navigate(Routes.BookDetail);
   }
 
   render() {
