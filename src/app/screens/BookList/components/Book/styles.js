@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { white, darkGray, grey, black } from '../../../../../constants/colors';
+import { white, darkGray, gray, black } from '../../../../../constants/colors';
 
 
 export default StyleSheet.create({
@@ -18,19 +18,19 @@ export default StyleSheet.create({
     elevation: 2
   },
   name: {
-      fontSize: 17,
-      color: darkGray,
-      fontWeight: "bold"
-    },
-    author: {
-      fontSize: 15,
-      color: grey,
-    },
-    image: {
-        width: 40,
-        height: 60,
-        marginLeft: 30,
-        marginRight: 20
-    }
+    fontSize: 17,
+    color: darkGray,
+    fontWeight: "bold"
+  },
+  author: {
+    fontSize: 15,
+    color: gray,
+  },
+  image: {
+      width: 40,
+      height: 60,
+      marginLeft: 30,
+      marginRight: 20
+  }
 });
 
