@@ -1,7 +1,6 @@
 import { black } from './colors';
 
-export const container = 
-{
+export const containerShadow = {
     opacity: 1,
     shadowColor: black,
     shadowOffset: {width: 0, height: 1},

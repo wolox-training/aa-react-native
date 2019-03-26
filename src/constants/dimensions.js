@@ -1,12 +1,33 @@
-export const bookImage = { width: 40, height: 60 };
-export const bookDetailImage = { width: 70, height: 105 };
-export const bookDetailButton = { height: 40 };
+// BOOK
+export const BOOK_IMAGE_WIDTH = 40;
+export const BOOK_IMAGE_HEIGHT = 60;
+export const BOOK_CONTAINER_RADIUS = 5;
+export const BOOK_CONTAINER_MARGIN_HORIZONTAL = 20;
+export const BOOK_CONTAINER_MARGIN_BOTTOM = 10;
+export const BOOK_IMAGE_MARGIN_LEFT = 30;
+export const BOOK_IMAGE_MARGIN_RIGHT = 20;
+export const BOOK_CONTAINER_PADDING_VERTICAL = 15;
+export const BOOK_CONTAINER_PADDING_RIGHT = 10;
 
-// Border Radius
-export const bookContainerRadius = 5;
-export const bookDetailContainerRadius = 5;
-export const bookDetailButtonRadius = 100;
 
-// Border Width
-export const bookDetailAddToWishListBorderWidth = 1;
+// BOOK LIST
+export const BOOK_LIST_CONTAINER_PADDING_TOP = 17;
+
+// BOOK DETAILS
+export const BOOK_DETAIL_IMAGE_WIDTH = 70;
+export const BOOK_DETAIL_IMAGE_HEIGHT = 105;
+export const BOOK_DETAIL_BUTTON_HEIGHT = 40;
+export const BOOK_DETAIL_CONTAINER_RADIUS = 5;
+export const BOOK_DETAIL_BUTTON_RADIUS = 100;
+export const BOOK_DETAIL_ADD_TO_WISH_LIST_BORDER_WIDTH = 1;
+export const BOOK_DETAIL_CONTAINER_MARGIN_HORIZONTAL = 20;
+export const BOOK_DETAIL_CONTAINER_MARGIN_TOP = 20;
+export const BOOK_DETAIL_CONTAINER_MARGIN_BOTTOM = 10;
+export const BOOK_DETAIL_IMAGE_MARGIN_RIGHT = 20; 
+export const BOOK_DETAIL_ADD_TO_WISH_LIST_MARGIN_BOTTOM = 10;
+export const BOOK_DETAIL_CONTAINER_PADDING_TOP = 15;
+export const BOOK_DETAIL_CONTAINER_PADDING_BOTTOM = 22;
+export const BOOK_DETAIL_CONTAINER_PADDING_HORIZONTAL = 30;
+export const bookDetailButtonsContainer = {  };
+export const BOOK_DETAIL_BUTTONS_CONTAINER_PADDING_TOP = 30;
 

@@ -4,7 +4,6 @@ import { View } from 'react-native';
 import styles from './styles';
 import BookDetailComponent from './components/BookDetail';
 
-//TODO: remove test
 class BookDetail extends Component {
     render() {
       const book = this.props.navigation.getParam('book');

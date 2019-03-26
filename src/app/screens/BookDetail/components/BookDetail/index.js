@@ -5,6 +5,7 @@ import  defaultImage from '../../../../assets/img_book6.png';
 
 
 function BookDetail({title, author, imageSource, year, type}) {
+    const aux = [author, year, type];
     return (
         <View style={styles.container}>
             <View style={styles.bookContainer}>
@@ -12,9 +13,7 @@ function BookDetail({title, author, imageSource, year, type}) {
                 <View style={styles.infoContainer}>
                     <Text style={styles.title} numberOfLines={1}>{title}</Text>
                     <View style={styles.dataContainer}>
-                        <Text style={styles.text}>{author}</Text>
-                        <Text style={styles.text}>{year}</Text>
-                        <Text style={styles.text}>{type}</Text>
+                        {aux.map(value => <Text key={value} style={styles.text}>{value}</Text>)}
                     </View>
                 </View>
             </View>

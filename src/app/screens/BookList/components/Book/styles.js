@@ -1,33 +1,35 @@
 import { StyleSheet } from 'react-native';
 
 import { white, darkGray, gray, black } from '../../../../../constants/colors';
-import * as FontSize from '../../../../../constants/fontSizes';
+import { BOOK_NAME, BOOK_AUTHOR} from '../../../../../constants/fontSizes';
 import * as Dimensions from '../../../../../constants/dimensions';
-import * as Margins from '../../../../../constants/margins';
-import * as Paddings from '../../../../../constants/paddings';
-import * as Shadows from '../../../../../constants/shadows';
+import { containerShadow } from '../../../../../constants/shadows';
 
 export default StyleSheet.create({
   container: {
     flexDirection: 'row',
-    ...Margins.bookContainer,
-    ...Paddings.bookContainer,
+    marginHorizontal: Dimensions.BOOK_CONTAINER_MARGIN_HORIZONTAL, 
+    marginBottom: Dimensions.BOOK_CONTAINER_MARGIN_BOTTOM,
+    paddingVertical: Dimensions.BOOK_CONTAINER_PADDING_VERTICAL, 
+    paddingRight: Dimensions.BOOK_CONTAINER_PADDING_RIGHT,
     backgroundColor: white,
-    borderRadius: Dimensions.bookContainerRadius,
-    ...Shadows.container
+    borderRadius: Dimensions.BOOK_CONTAINER_RADIUS,
+    ...containerShadow
   },
   name: {
-    fontSize: FontSize.bookName,
+    fontSize: BOOK_NAME,
     color: darkGray,
     fontWeight: "bold"
   },
   author: {
-    fontSize: FontSize.bookAuthor,
+    fontSize: BOOK_AUTHOR,
     color: gray,
   },
   image: {
-      ...Dimensions.bookImage,
-      ...Margins.bookImage
+    width: Dimensions.BOOK_IMAGE_WIDTH, 
+    height: Dimensions.BOOK_IMAGE_HEIGHT,
+    marginLeft: Dimensions.BOOK_IMAGE_MARGIN_LEFT,
+    marginRight: Dimensions.BOOK_IMAGE_MARGIN_RIGHT
   },
   bookContainer : {
     flex: 1

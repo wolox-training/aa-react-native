@@ -1,27 +1,29 @@
 import { StyleSheet } from 'react-native';
 
-import { white, black, darkGray, gray, skyBlue } from '../../../../../constants/colors';
-import * as FontSize from '../../../../../constants/fontSizes';
+import { white, darkGray, gray, skyBlue } from '../../../../../constants/colors';
+import { BOOK_DETAIL_BUTTOM_TEXT, BOOK_DETAIL_TITLE, BOOK_DETAIL_TEXT } from '../../../../../constants/fontSizes';
 import * as Dimensions from '../../../../../constants/dimensions';
-import * as Margins from '../../../../../constants/margins';
-import * as Paddings from '../../../../../constants/paddings';
-import * as Shadows from '../../../../../constants/shadows';
+import { containerShadow } from '../../../../../constants/shadows';
 
 const button = {
     width: '100%',
-    ...Dimensions.bookDetailButton,
-    borderRadius: Dimensions.bookDetailButtonRadius,
+    height: Dimensions.BOOK_DETAIL_BUTTON_HEIGHT,
+    borderRadius: Dimensions.BOOK_DETAIL_BUTTON_RADIUS,
     alignItems: 'center',
     justifyContent: 'center'
 };
 
 export default StyleSheet.create({
     container: {
-        ...Margins.bookDetailContainer,
-        ...Paddings.bookDetailContainer,
+        marginHorizontal: Dimensions.BOOK_DETAIL_CONTAINER_MARGIN_HORIZONTAL, 
+        marginTop: Dimensions.BOOK_DETAIL_CONTAINER_MARGIN_TOP, 
+        marginBottom: Dimensions.BOOK_DETAIL_CONTAINER_MARGIN_BOTTOM,
+        paddingTop: Dimensions.BOOK_DETAIL_CONTAINER_PADDING_TOP, 
+        paddingBottom: Dimensions.BOOK_DETAIL_CONTAINER_PADDING_BOTTOM, 
+        paddingHorizontal: Dimensions.BOOK_DETAIL_CONTAINER_PADDING_HORIZONTAL,
         backgroundColor: white,
-        borderRadius: Dimensions.bookDetailContainerRadius,
-        ...Shadows.container
+        borderRadius: Dimensions.BOOK_DETAIL_CONTAINER_RADIUS,
+        ...containerShadow
     },
     infoContainer: {
         flex: 1,  
@@ -32,23 +34,24 @@ export default StyleSheet.create({
         justifyContent: 'flex-end'
     },
     image: {
-        ...Dimensions.bookDetailImage,
-        ...Margins.bookDetailImage
+        width: Dimensions.BOOK_DETAIL_IMAGE_WIDTH, 
+        height: Dimensions.BOOK_DETAIL_IMAGE_HEIGHT,
+        marginRight: Dimensions.BOOK_DETAIL_IMAGE_MARGIN_RIGHT
     },
     title: {
-        fontSize: FontSize.bookDetailTitle,
+        fontSize: BOOK_DETAIL_TITLE,
         color: darkGray,
         fontWeight: "bold"
     },
     text: {
-        fontSize: FontSize.bookDetailText,
+        fontSize: BOOK_DETAIL_TEXT,
         color: gray,
     },
     addToWishList: {
         ...button,
-        borderWidth: Dimensions.bookDetailAddToWishListBorderWidth,
+        borderWidth: Dimensions.BOOK_DETAIL_ADD_TO_WISH_LIST_BORDER_WIDTH,
         borderColor: skyBlue,
-        ...Margins.bookDetailAddToWishList
+        marginBottom: Dimensions.BOOK_DETAIL_ADD_TO_WISH_LIST_MARGIN_BOTTOM
     },
     rent: {
         ...button,
@@ -58,15 +61,15 @@ export default StyleSheet.create({
         flexDirection: 'row'
     },
     addToWishListText: {
-        ...FontSize.bookDetailButtonText,
+        fontSize: BOOK_DETAIL_BUTTOM_TEXT,
         color: skyBlue
     },
     rentText: {
-        ...FontSize.bookDetailButtonText,
+        fontSize: BOOK_DETAIL_BUTTOM_TEXT,
         color: white
     },
     buttonsContainer: {
-        ...Paddings.bookDetailButtonsContainer,
+        paddingTop: Dimensions.BOOK_DETAIL_BUTTONS_CONTAINER_PADDING_TOP,
         alignItems: 'center'
     }
 });
