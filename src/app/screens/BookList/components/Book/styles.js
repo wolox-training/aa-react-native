@@ -28,6 +28,9 @@ export default StyleSheet.create({
   image: {
       ...Dimensions.bookImage,
       ...Margins.bookImage
+  },
+  bookContainer : {
+    flex: 1
   }
 });
 

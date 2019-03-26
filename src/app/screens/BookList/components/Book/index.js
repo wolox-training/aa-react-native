@@ -7,8 +7,8 @@ function Book({name, author, imageSource, onPress}) {
     return (
         <TouchableOpacity style={styles.container} onPress={onPress}>
             <Image style={styles.image} source={imageSource||defaultImage}/>
-            <View>
-                <Text style={styles.name}>
+            <View style = {styles.bookContainer}>
+                <Text style={styles.name} numberOfLines={1}>
                 {name}
                 </Text>
                 <Text style={styles.author}>

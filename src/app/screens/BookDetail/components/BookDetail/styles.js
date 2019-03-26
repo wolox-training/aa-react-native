@@ -8,6 +8,7 @@ import * as Paddings from '../../../../../constants/paddings';
 import * as Shadows from '../../../../../constants/shadows';
 
 const button = {
+    width: '100%',
     ...Dimensions.bookDetailButton,
     borderRadius: Dimensions.bookDetailButtonRadius,
     alignItems: 'center',

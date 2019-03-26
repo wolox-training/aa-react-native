@@ -1,7 +1,6 @@
 export const bookImage = { width: 40, height: 60 };
 export const bookDetailImage = { width: 70, height: 105 };
-export const bookDetailDataContainer = { height: 72 };
-export const bookDetailButton = { width: 275, height: 44 };
+export const bookDetailButton = { height: 40 };
 
 // Border Radius
 export const bookContainerRadius = 5;
