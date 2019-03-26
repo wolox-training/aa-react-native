@@ -1,70 +1,71 @@
 import { StyleSheet } from 'react-native';
+
 import { white, black, darkGray, gray, skyBlue } from '../../../../../constants/colors';
+import * as FontSize from '../../../../../constants/fontSizes';
+import * as Dimensions from '../../../../../constants/dimensions';
+import * as Margins from '../../../../../constants/margins';
+import * as Paddings from '../../../../../constants/paddings';
+import * as Shadows from '../../../../../constants/shadows';
+
+const button = {
+    ...Dimensions.bookDetailButton,
+    borderRadius: Dimensions.bookDetailButtonRadius,
+    alignItems: 'center',
+    justifyContent: 'center'
+};
 
 export default StyleSheet.create({
     container: {
-        marginHorizontal: 20,
-        marginTop: 20,
-        marginBottom: 10,
-        paddingTop: 15,
-        paddingBottom: 22,
+        ...Margins.bookDetailContainer,
+        ...Paddings.bookDetailContainer,
         backgroundColor: white,
-        borderRadius: 5,
-        opacity: 1,
-        shadowColor: black,
-        shadowOffset: {width: 0, height: 1},
-        shadowOpacity: 1,
-        shadowRadius: 1,
-        elevation: 2
+        borderRadius: Dimensions.bookDetailContainerRadius,
+        ...Shadows.container
+    },
+    infoContainer: {
+        flex: 1,  
+        flexWrap: 'wrap'
+    },
+    dataContainer: {
+        ...Dimensions.bookDetailDataContainer, 
+        justifyContent: 'flex-end'
     },
     image: {
-        width: 70,
-        height: 105,
-        marginLeft: 30,
-        marginRight: 20
+        ...Dimensions.bookDetailImage,
+        ...Margins.bookDetailImage
     },
     title: {
-        fontSize: 24,
+        fontSize: FontSize.bookDetailTitle,
         color: darkGray,
         fontWeight: "bold"
     },
     text: {
-        fontSize: 15,
+        fontSize: FontSize.bookDetailText,
         color: gray,
     },
     addToWishList: {
-        width: 275,
-        height: 44,
-        borderRadius: 100,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: 1,
+        ...button,
+        borderWidth: Dimensions.bookDetailAddToWishListBorderWidth,
         borderColor: skyBlue,
-        marginBottom: 10
+        ...Margins.bookDetailAddToWishList
     },
     rent: {
-        width: 275,
-        height: 44,
-        borderRadius: 100,
+        ...button,
         backgroundColor: skyBlue,
-        alignItems: 'center',
-        justifyContent: 'center'
-
     },
     bookContainer: {
         flexDirection: 'row'
     },
     addToWishListText: {
-        fontSize: 15,
+        ...FontSize.bookDetailButtonText,
         color: skyBlue
     },
     rentText: {
-        fontSize: 15,
+        ...FontSize.bookDetailButtonText,
         color: white
     },
     buttonsContainer: {
-        paddingTop: 30,
-        paddingBottom: 22,
+        ...Paddings.bookDetailButtonsContainer,
         alignItems: 'center'
     }
 });

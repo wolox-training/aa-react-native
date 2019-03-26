@@ -1,36 +1,33 @@
 import { StyleSheet } from 'react-native';
-import { white, darkGray, gray, black } from '../../../../../constants/colors';
 
+import { white, darkGray, gray, black } from '../../../../../constants/colors';
+import * as FontSize from '../../../../../constants/fontSizes';
+import * as Dimensions from '../../../../../constants/dimensions';
+import * as Margins from '../../../../../constants/margins';
+import * as Paddings from '../../../../../constants/paddings';
+import * as Shadows from '../../../../../constants/shadows';
 
 export default StyleSheet.create({
   container: {
-    marginHorizontal: 20,
     flexDirection: 'row',
-    paddingVertical: 15,
+    ...Margins.bookContainer,
+    ...Paddings.bookContainer,
     backgroundColor: white,
-    borderRadius: 5,
-    marginBottom: 10,
-    opacity: 1,
-    shadowColor: black,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 1,
-    shadowRadius: 1,
-    elevation: 2
+    borderRadius: Dimensions.bookContainerRadius,
+    ...Shadows.container
   },
   name: {
-    fontSize: 17,
+    fontSize: FontSize.bookName,
     color: darkGray,
     fontWeight: "bold"
   },
   author: {
-    fontSize: 15,
+    fontSize: FontSize.bookAuthor,
     color: gray,
   },
   image: {
-      width: 40,
-      height: 60,
-      marginLeft: 30,
-      marginRight: 20
+      ...Dimensions.bookImage,
+      ...Margins.bookImage
   }
 });
 
