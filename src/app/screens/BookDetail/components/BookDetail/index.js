@@ -8,7 +8,7 @@ function BookDetail({title, author, imageSource, year, type}) {
     return (
         <View style={styles.container}>
             <View style={styles.bookContainer}>
-                <Image style={styles.image} resizeMode={'cover'} source={imageSource||defaultImage}></Image>
+                <Image style={styles.image} resizeMode="cover" source={imageSource||defaultImage}></Image>
                 <View style={styles.infoContainer}>
                     <Text style={styles.title} numberOfLines={1}>{title}</Text>
                     <View style={styles.dataContainer}>

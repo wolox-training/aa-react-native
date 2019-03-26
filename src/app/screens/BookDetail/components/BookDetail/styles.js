@@ -27,7 +27,7 @@ export default StyleSheet.create({
         flexWrap: 'wrap'
     },
     dataContainer: {
-        ...Dimensions.bookDetailDataContainer, 
+        flex: 1, 
         justifyContent: 'flex-end'
     },
     image: {
