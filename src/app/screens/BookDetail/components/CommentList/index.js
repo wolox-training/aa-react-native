@@ -18,7 +18,7 @@ class CommentList extends Component {
             renderItem={this.renderItem}
             keyExtractor={this.keyExtractor}
             contentContainerStyle={styles.container}
-            ListFooterComponent={() => <TouchableOpacity style={styles.footer} ><Text style={styles.footerText}>View All</Text></TouchableOpacity>}
+            ListFooterComponent={() => <TouchableOpacity style={styles.footer} >{(comments.length == 0 || comments.length == 1) ? <Text></Text> : <Text style={styles.footerText}>View All</Text>}</TouchableOpacity>}
           />
         );
 
