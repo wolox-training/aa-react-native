@@ -1,36 +1,35 @@
 import { StyleSheet } from 'react-native';
 
-import { white, darkGray, gray, black } from '../../../../../constants/colors';
-import { BOOK_NAME, BOOK_AUTHOR} from '../../../../../constants/fontSizes';
-import { BOOK_CONTAINER_MARGIN_HORIZONTAL, BOOK_CONTAINER_MARGIN_BOTTOM, BOOK_CONTAINER_PADDING_VERTICAL, BOOK_CONTAINER_PADDING_RIGHT, 
-  BOOK_CONTAINER_RADIUS, BOOK_IMAGE_WIDTH, BOOK_IMAGE_HEIGHT, BOOK_IMAGE_MARGIN_LEFT, BOOK_IMAGE_MARGIN_RIGHT } from '../../../../../constants/dimensions';
+import { white, darkGray, gray } from '../../../../../constants/colors';
+import { SMALL, MEDIUM} from '../../../../../constants/fontSizes';
+import { SPACING_MEDIUM, SPACING_BIG, SMALL_IMAGE_HEIGHT, SMALL_IMAGE_WIDTH, RADIUS_SMALL, SPACING_VERY_SMALL, SPACING_SMALL } from '../../../../../constants/dimensions';
 import { containerShadow } from '../../../../../constants/shadows';
 
 export default StyleSheet.create({
   container: {
     flexDirection: 'row',
-    marginHorizontal: BOOK_CONTAINER_MARGIN_HORIZONTAL, 
-    marginBottom: BOOK_CONTAINER_MARGIN_BOTTOM,
-    paddingVertical: BOOK_CONTAINER_PADDING_VERTICAL, 
-    paddingRight: BOOK_CONTAINER_PADDING_RIGHT,
+    marginHorizontal: SPACING_MEDIUM, 
+    marginBottom: SPACING_VERY_SMALL,
+    paddingVertical: SPACING_SMALL, 
+    paddingRight: SPACING_VERY_SMALL,
     backgroundColor: white,
-    borderRadius: BOOK_CONTAINER_RADIUS,
+    borderRadius: RADIUS_SMALL,
     ...containerShadow
   },
   name: {
-    fontSize: BOOK_NAME,
+    fontSize: MEDIUM,
     color: darkGray,
     fontWeight: "bold"
   },
   author: {
-    fontSize: BOOK_AUTHOR,
+    fontSize: SMALL,
     color: gray,
   },
   image: {
-    width: BOOK_IMAGE_WIDTH, 
-    height: BOOK_IMAGE_HEIGHT,
-    marginLeft: BOOK_IMAGE_MARGIN_LEFT,
-    marginRight: BOOK_IMAGE_MARGIN_RIGHT
+    width: SMALL_IMAGE_WIDTH, 
+    height: SMALL_IMAGE_HEIGHT,
+    marginLeft: SPACING_BIG,
+    marginRight: SPACING_MEDIUM
   },
   bookContainer : {
     flex: 1
