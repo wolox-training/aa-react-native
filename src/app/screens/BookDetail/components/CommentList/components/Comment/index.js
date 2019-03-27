@@ -3,12 +3,12 @@ import { View, Image, Text } from 'react-native';
 
 import styles from './styles';
 
-function Comment({user, comment}) {
+function Comment({username, userImageSource, comment}) {
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={user.imageSource}/>
+            <Image style={styles.image} source={userImageSource}/>
             <View style={styles.textContainer}>
-                <Text style={styles.username}>{user.name}</Text>
+                <Text style={styles.username}>{username}</Text>
                 <Text styles={styles.comment}>{comment}</Text>
             </View>
         </View>
