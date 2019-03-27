@@ -1,5 +1,6 @@
 export const SMALL_IMAGE_WIDTH = 40;
 export const SMALL_IMAGE_HEIGHT = 60;
+export const MEDIUM_IMAGE_DIM = 45;
 export const BIG_IMAGE_WIDTH = 70;
 export const BIG_IMAGE_HEIGHT = 105;
 
