@@ -6,19 +6,15 @@ import { defaultBooks } from './books';
 import styles from './styles';
 import * as Routes from '../../../constants/routes'
 
-
-
-
-
 class BookList extends Component {
 
-  renderItem = ({item}) =>  <Book name={item.title} author={item.author} imageSource={item.imageSource} onPress={this.handlePressBook}/>;
+  renderItem = ({item}) =>  <Book name={item.title} author={item.author} imageSource={item.imageSource} onPress={() => this.handlePressBook(item)}/>;
 
   keyExtractor = (item) => `${item.id}`;
   
-  handlePressBook = () => {
+  handlePressBook = (item) => {
     const {navigation} = this.props;
-    navigation.navigate(Routes.Dummy);
+    navigation.navigate(Routes.BookDetail, {book: item});
   }
 
   render() {

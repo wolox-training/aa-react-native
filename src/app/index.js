@@ -1,15 +1,17 @@
+import React from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+
 import * as Routes from '../constants/routes';
 import BookList from './screens/BookList';
-import Dummy from './screens/Dummy';
+import BookDetail from './screens/BookDetail';
 
 
 const AppNavigator = createStackNavigator({
   [Routes.BookList]: {
    screen: BookList
   }, 
-  [Routes.Dummy]: {
-    screen: Dummy
+  [Routes.BookDetail]: {
+    screen: BookDetail
   }
   }, {
     headerMode: 'none'

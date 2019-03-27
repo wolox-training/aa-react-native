@@ -1,36 +1,38 @@
 import { StyleSheet } from 'react-native';
-import { white, darkGray, grey, black } from '../../../../../constants/colors';
 
+import { white, darkGray, gray } from '../../../../../constants/colors';
+import { SMALL, MEDIUM} from '../../../../../constants/fontSizes';
+import { SPACING_MEDIUM, SPACING_BIG, SMALL_IMAGE_HEIGHT, SMALL_IMAGE_WIDTH, RADIUS_SMALL, SPACING_VERY_SMALL, SPACING_SMALL } from '../../../../../constants/dimensions';
+import { containerShadow } from '../../../../../constants/shadows';
 
 export default StyleSheet.create({
   container: {
-    marginHorizontal: 20,
     flexDirection: 'row',
-    paddingVertical: 15,
+    marginHorizontal: SPACING_MEDIUM, 
+    marginBottom: SPACING_VERY_SMALL,
+    paddingVertical: SPACING_SMALL, 
+    paddingRight: SPACING_VERY_SMALL,
     backgroundColor: white,
-    borderRadius: 5,
-    marginBottom: 10,
-    opacity: 1,
-    shadowColor: black,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 1,
-    shadowRadius: 1,
-    elevation: 2
+    borderRadius: RADIUS_SMALL,
+    ...containerShadow
   },
   name: {
-      fontSize: 17,
-      color: darkGray,
-      fontWeight: "bold"
-    },
-    author: {
-      fontSize: 15,
-      color: grey,
-    },
-    image: {
-        width: 40,
-        height: 60,
-        marginLeft: 30,
-        marginRight: 20
-    }
+    fontSize: MEDIUM,
+    color: darkGray,
+    fontWeight: "bold"
+  },
+  author: {
+    fontSize: SMALL,
+    color: gray,
+  },
+  image: {
+    width: SMALL_IMAGE_WIDTH, 
+    height: SMALL_IMAGE_HEIGHT,
+    marginLeft: SPACING_BIG,
+    marginRight: SPACING_MEDIUM
+  },
+  bookContainer : {
+    flex: 1
+  }
 });
 
