@@ -62,11 +62,13 @@ export default StyleSheet.create({
     },
     addToWishListText: {
         fontSize: SMALL,
-        color: skyBlue
+        color: skyBlue,
+        fontWeight: "bold"
     },
     rentText: {
         fontSize: SMALL,
-        color: white
+        color: white,
+        fontWeight: "bold"
     },
     buttonsContainer: {
         paddingTop: SPACING_BIG,

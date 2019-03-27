@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { Text, FlatList, TouchableOpacity } from 'react-native';
 
 import Comment from './components/Comment';
 import styles from './styles';
@@ -18,6 +18,7 @@ class CommentList extends Component {
             renderItem={this.renderItem}
             keyExtractor={this.keyExtractor}
             contentContainerStyle={styles.container}
+            ListFooterComponent={() => <TouchableOpacity style={styles.footer} ><Text style={styles.footerText}>View All</Text></TouchableOpacity>}
           />
         );
 
