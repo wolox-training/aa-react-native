@@ -7,7 +7,7 @@ import BookDetail from './screens/BookDetail';
 
 
 import * as Routes from '../constants/routes';
-import { defaultNavigationOptions } from '../navigationOptions';
+import { defaultNavigationOptions } from '../config/navigationOptions';
 
 
 const AppNavigator = createStackNavigator({
