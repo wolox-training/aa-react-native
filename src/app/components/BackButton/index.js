@@ -1,17 +1,19 @@
-import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import React, { Component } from 'react';
+import { Image, TouchableOpacity } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
-
+import styles from './styles';
 import backImage from '../../assets/ic_back.png';
 
-function BackButton() {
+class BackButton extends Component {
+  render() {
     return (
-        <TouchableHighlight onPress={onPress}>
-        <Image
-          source={require('./Assets/BackLight.png')}
-        />
-      </TouchableHighlight>
+      <TouchableOpacity style={styles.container} onPress={() => { this.props.navigation.goBack()}}>
+        <Image style={styles.image} source={backImage} resizeMode="stretch"/>
+      </TouchableOpacity>
     )
-};
+  }
+}  
 
-export default BackButton;
+
+export default withNavigation(BackButton);

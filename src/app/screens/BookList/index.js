@@ -19,7 +19,7 @@ class BookList extends Component {
   }
 
   static navigationOptions = {
-    title: LIBRARY,
+    title: LIBRARY
   };
 
   render() {
