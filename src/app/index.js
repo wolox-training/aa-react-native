@@ -1,5 +1,4 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
 
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
@@ -11,6 +10,7 @@ import { white } from '../constants/colors';
 import { MEDIUM } from '../constants/fontSizes';
 import { SPACING_BIG } from '../constants/dimensions';
 import * as Routes from '../constants/routes';
+import { HEADER_HEIGHT } from '../constants/platform';
 
 const AppNavigator = createStackNavigator({
     [Routes.BookList]: {
@@ -21,7 +21,7 @@ const AppNavigator = createStackNavigator({
     }
   }, {
     defaultNavigationOptions: {
-      headerStyle: {height: Dimensions.get('window').height * 0.15, width: '100%', backgroundColor: 'transparent'},
+      headerStyle: {height: HEADER_HEIGHT, width: '100%', backgroundColor: 'transparent'},
       headerBackground: <HeaderBackground/>,
       headerTitleStyle: { color: white, fontSize: MEDIUM, fontWeight: "bold", marginLeft: SPACING_BIG}
     }
