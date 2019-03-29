@@ -30,7 +30,7 @@ class CommentList extends Component {
             renderItem={this.renderItem}
             keyExtractor={this.keyExtractor}
             contentContainerStyle={styles.container}
-            ListFooterComponent={<View>{this.renderViewAll(comments, isViewedAll)}</View>}
+            ListFooterComponent={this.renderViewAll(comments, isViewedAll)}
           />
         );
 
