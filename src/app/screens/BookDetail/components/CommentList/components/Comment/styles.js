@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { lightDark, gray, white } from '../../../../../../../constants/colors';
-import { SMALL } from '../../../../../../../constants/fontSizes';
+import { SMALL, BOLD } from '../../../../../../../constants/fontSizes';
 import { SPACING_SMALL, MEDIUM_IMAGE_DIM, SPACING_MEDIUM } from '../../../../../../../constants/dimensions';
 
 export default StyleSheet.create({
@@ -14,7 +14,7 @@ export default StyleSheet.create({
     username: {
         fontSize: SMALL,
         color: lightDark,
-        fontWeight: "bold"
+        fontWeight: BOLD
     },
     comment: {
         fontSize: SPACING_SMALL,

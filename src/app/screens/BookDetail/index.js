@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { View } from 'react-native';
 
 import styles from './styles';
 import BookDetailComponent from './components/BookDetail';
 import CommentList from './components/CommentList';
 
-class BookDetail extends Component {
+class BookDetail extends PureComponent {
     render() {
       const book = this.props.navigation.getParam('book');
-      // TODO: remove test.
 
       return (
         <View style={styles.container}>
