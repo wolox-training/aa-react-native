@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { white, darkGray, gray, skyBlue } from '../../../../../constants/colors';
-import { SMALL, LARGE } from '../../../../../constants/fontSizes';
+import { SMALL, LARGE, BOLD } from '../../../../../constants/fontSizes';
 import { BUTTON_HEIGHT, SPACING_MEDIUM, SPACING_BIG, RADIUS_SMALL, RADIUS_BIG, SPACING_VERY_SMALL, BIG_IMAGE_WIDTH, BIG_IMAGE_HEIGHT, SPACING_SMALL, BORDER_WIDTH} from '../../../../../constants/dimensions';
 import { containerShadow } from '../../../../../constants/shadows';
 
@@ -41,7 +41,7 @@ export default StyleSheet.create({
     title: {
         fontSize: LARGE,
         color: darkGray,
-        fontWeight: "bold"
+        fontWeight: BOLD
     },
     text: {
         fontSize: SMALL,
@@ -62,11 +62,13 @@ export default StyleSheet.create({
     },
     addToWishListText: {
         fontSize: SMALL,
-        color: skyBlue
+        color: skyBlue,
+        fontWeight: BOLD
     },
     rentText: {
         fontSize: SMALL,
-        color: white
+        color: white,
+        fontWeight: BOLD
     },
     buttonsContainer: {
         paddingTop: SPACING_BIG,
