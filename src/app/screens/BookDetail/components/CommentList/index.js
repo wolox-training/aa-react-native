@@ -6,24 +6,31 @@ import styles from './styles';
 
 class CommentList extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = { isViewedAll: false };
-    }
-    renderItem = ({item}) =>  <Comment username={item.user.name}  userImageSource={item.user.imageSource} comment={item.comment}/>;
+    state = { isViewedAll: false }
 
-    keyExtractor = (item) => `${item.id}`;
+    renderItem = ({ item }) =>  <Comment username={item.user.name}  userImageSource={item.user.imageSource} comment={item.comment}/>;
 
-    onPressHandler = () => (this.setState(previousState => ({ isViewedAll: true })));
+    keyExtractor = item => `${item.id}`;
+
+    handlePressViewAll = () => this.setState({ isViewedAll: true });
+
+    renderViewAllText = comments => comments.length > 2 && <Text style={styles.footerText}>View All</Text>;
+
+    renderViewAll = (comments, isViewedAll) => !isViewedAll && <TouchableOpacity style={styles.footer} onPress={this.handlePressViewAll} >{this.renderViewAllText(comments)}</TouchableOpacity>;
+
+    getCommentsByIndex = (comments, index) => comments.filter((x,i) => index.includes(i));
+
     render() {
-        const {comments} = this.props;
+        const { comments } = this.props;
+        const { isViewedAll } = this.state;
+
         return (
             <FlatList
-            data={ (this.state.isViewedAll) ? comments.filter((x,i) => [0,1,2,3,4].includes(i)) : comments.filter((x,i) => [0,1].includes(i))}
+            data={ (isViewedAll) ? this.getCommentsByIndex(comments, [0, 1, 2, 3, 4]) : this.getCommentsByIndex(comments, [0, 1])}
             renderItem={this.renderItem}
             keyExtractor={this.keyExtractor}
             contentContainerStyle={styles.container}
-            ListFooterComponent={() =><View>{(this.state.isViewedAll) ? <Text></Text> : <TouchableOpacity style={styles.footer} onPress={this.onPressHandler} >{(comments.length <= 2) ? <Text></Text> : <Text style={styles.footerText}>View All</Text>}</TouchableOpacity>}</View>}
+            ListFooterComponent={<View>{this.renderViewAll(comments, isViewedAll)}</View>}
           />
         );
 
