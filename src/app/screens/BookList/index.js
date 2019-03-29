@@ -4,8 +4,9 @@ import { FlatList } from 'react-native';
 import Book from './components/Book';
 import { defaultBooks } from './books';
 import styles from './styles';
-import * as Routes from '../../../constants/routes'
 
+import * as Routes from '../../../constants/routes';
+import { LIBRARY } from '../../../constants/titles';
 class BookList extends Component {
 
   renderItem = ({item}) =>  <Book name={item.title} author={item.author} imageSource={item.imageSource} onPress={() => this.handlePressBook(item)}/>;
@@ -16,6 +17,10 @@ class BookList extends Component {
     const {navigation} = this.props;
     navigation.navigate(Routes.BookDetail, {book: item});
   }
+
+  static navigationOptions = {
+    title: LIBRARY,
+  };
 
   render() {
     const {books} = this.props;
