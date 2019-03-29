@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { white, darkGray, gray } from '../../../../../constants/colors';
-import { SMALL, MEDIUM} from '../../../../../constants/fontSizes';
+import { SMALL, MEDIUM, BOLD} from '../../../../../constants/fontSizes';
 import { SPACING_MEDIUM, SPACING_BIG, SMALL_IMAGE_HEIGHT, SMALL_IMAGE_WIDTH, RADIUS_SMALL, SPACING_VERY_SMALL, SPACING_SMALL } from '../../../../../constants/dimensions';
 import { containerShadow } from '../../../../../constants/shadows';
 
@@ -19,7 +19,7 @@ export default StyleSheet.create({
   name: {
     fontSize: MEDIUM,
     color: darkGray,
-    fontWeight: "bold"
+    fontWeight: BOLD
   },
   author: {
     fontSize: SMALL,
