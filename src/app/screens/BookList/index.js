@@ -5,8 +5,7 @@ import Book from './components/Book';
 import { defaultBooks } from './books';
 import styles from './styles';
 
-import * as Routes from '../../../constants/routes';
-import { LIBRARY } from '../../../constants/titles';
+import { BookDetail } from '../../../constants/routes';
 class BookList extends Component {
 
   renderItem = ({item}) =>  <Book name={item.title} author={item.author} imageSource={item.imageSource} onPress={() => this.handlePressBook(item)}/>;
@@ -15,12 +14,8 @@ class BookList extends Component {
   
   handlePressBook = (item) => {
     const {navigation} = this.props;
-    navigation.navigate(Routes.BookDetail, {book: item});
+    navigation.navigate(BookDetail, {book: item});
   }
-
-  static navigationOptions = {
-    title: LIBRARY
-  };
 
   render() {
     const {books} = this.props;
