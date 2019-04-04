@@ -6,7 +6,7 @@ import styles from './styles';
 
 function TabBarIcon({focused, inactiveIcon, activeIcon}) {
     return (
-        <Image style={styles.image} source={ focused ? activeIcon : inactiveIcon } />
+        <Image style={styles.image} source={ focused ? activeIcon : inactiveIcon } resizeMode="cover"/>
     )
 };
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { getActiveChildNavigationOptions } from 'react-navigation';
 
-import libraryImage from '../app/assets/ic_library.png';
-import libraryActiveImage from '../app/assets/ic_library_active.png';
-import dummyActiveImage from '../app/assets/ic_settings_active.png';
-import dummyImage from '../app/assets/ic_settings.png';
+import libraryIcon from '../app/assets/ic_library.png';
+import libraryActiveIcon from '../app/assets/ic_library_active.png';
+import settingsIcon from '../app/assets/ic_settings.png';
+import settingsActiveIcon from '../app/assets/ic_settings_active.png';
 import HeaderBackground from '../app/components/HeaderBackground';
 import BackButton from '../app/components/BackButton';
 import { HEADER_HEIGHT } from '../constants/platform';
@@ -27,13 +27,13 @@ export const bookDetailNavigationOptions = {
 export const bookListNavigationOptions = {
     title: LIBRARY,
     tabBarLabel: LIBRARY,
-    tabBarIcon: ({focused}) => <TabBarIcon focused={focused}  inactiveIcon={libraryImage} activeIcon={libraryActiveImage}/>
+    tabBarIcon: ({focused}) => <TabBarIcon focused={focused}  inactiveIcon={libraryIcon} activeIcon={libraryActiveIcon}/>
   };
 
   export const dummyNavigationOptions = {
       title: DUMMY,
       tabBarLabel: DUMMY,
-      tabBarIcon: ({focused}) => <TabBarIcon focused={focused}  inactiveIcon={dummyImage} activeIcon={dummyActiveImage}/>
+      tabBarIcon: ({focused}) => <TabBarIcon focused={focused}  inactiveIcon={settingsIcon} activeIcon={settingsActiveIcon}/>
   }
 
   export const childTabsNavigationOptions = ({ navigation, screenProps }) =>
