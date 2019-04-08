@@ -6,34 +6,34 @@ import BookDetail from './screens/BookDetail';
 import Dummy from './screens/Dummy';
 
 import * as Routes from '../constants/routes';
-import { defaultNavigationOptions, bookDetailNavigationOptions, bookListNavigationOptions, dummyNavigationOptions, childTabsNavigationOptions, loginNavigationOptions } from '../config/navigationOptions';
+import * as NavigationOptions from '../config/navigationOptions';
 import LoginContainer from './screens/Login';
 
 
 const AppNavigator = createStackNavigator({
     [Routes.Login]: {
       screen: LoginContainer,
-      navigationOptions: loginNavigationOptions
+      navigationOptions: NavigationOptions.loginNavigationOptions
     },
     [Routes.Home]: {
       screen: createBottomTabNavigator({
         [Routes.BookList]: {
           screen: BookList,
-          navigationOptions: bookListNavigationOptions
+          navigationOptions: NavigationOptions.bookListNavigationOptions
         },
         [Routes.Dummy]: {
           screen: Dummy,
-          navigationOptions: dummyNavigationOptions
+          navigationOptions: NavigationOptions.dummyNavigationOptions
         }
       }),
-      navigationOptions: childTabsNavigationOptions
+      navigationOptions: NavigationOptions.childTabsNavigationOptions
     }, 
     [Routes.BookDetail]: {
       screen: BookDetail,
-      navigationOptions: bookDetailNavigationOptions
+      navigationOptions: NavigationOptions.bookDetailNavigationOptions
     }
   }, {
-    defaultNavigationOptions: defaultNavigationOptions
+    defaultNavigationOptions: NavigationOptions.defaultNavigationOptions
   }
 );
 

@@ -1,30 +1,28 @@
 import React from 'react';
 import { ImageBackground, Text, TextInput, TouchableOpacity } from 'react-native';
 import { lightGray } from '../../../constants/colors';
-
 import styles from './styles';
 import backgroundImage from '../../assets/bc_start.png'
 
 function Login() {
+    const commonProps = { style: styles.input, numberOfLines: 1, placeholderTextColor: lightGray };
     return (
         <ImageBackground source={backgroundImage} style={styles.backgroundImage} resizeMode="cover">
                 <Text style={styles.title}>WBOOKS</Text>
                 <TextInput
-                    style={styles.input}
+                    {...commonProps}
                     placeholder="Email"
-                    placeholderTextColor= {lightGray}
                     autoComplete= 'email'
                     keyboardType= 'email-address'
-                    numberOfLines= {1}
                     textContentType= 'emailAddress'
+                    commonProps
+
                 />
                 <TextInput
-                    style={styles.input}
+                    {...commonProps}
                     placeholder="Password"
                     secureTextEntry={true}
-                    placeholderTextColor= {lightGray}
                     autoComplete= 'password'
-                    numberOfLines= {1}
                     textContentType= 'password'
                 />
                  <TouchableOpacity style={styles.button}>
