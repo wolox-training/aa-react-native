@@ -13,12 +13,19 @@ function Login() {
                     style={styles.input}
                     placeholder="Email"
                     placeholderTextColor= {lightGray}
+                    autoComplete= 'email'
+                    keyboardType= 'email-address'
+                    numberOfLines= {1}
+                    textContentType= 'emailAddress'
                 />
                 <TextInput
                     style={styles.input}
                     placeholder="Password"
                     secureTextEntry={true}
                     placeholderTextColor= {lightGray}
+                    autoComplete= 'password'
+                    numberOfLines= {1}
+                    textContentType= 'password'
                 />
                  <TouchableOpacity style={styles.button}>
                      <Text style={styles.buttonText}>LOG IN</Text>
