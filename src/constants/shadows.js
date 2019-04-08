@@ -9,3 +9,11 @@ export const containerShadow = {
     elevation: 2
 };
 
+
+export const textShadow = {
+    textShadowColor: black,
+    textShadowOffset: {width: -2, height: 2},
+    textShadowRadius: 10,
+    marginBottom: 20
+};
+

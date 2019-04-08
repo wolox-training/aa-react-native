@@ -6,10 +6,15 @@ import BookDetail from './screens/BookDetail';
 import Dummy from './screens/Dummy';
 
 import * as Routes from '../constants/routes';
-import { defaultNavigationOptions, bookDetailNavigationOptions, bookListNavigationOptions, dummyNavigationOptions, childTabsNavigationOptions } from '../config/navigationOptions';
+import { defaultNavigationOptions, bookDetailNavigationOptions, bookListNavigationOptions, dummyNavigationOptions, childTabsNavigationOptions, loginNavigationOptions } from '../config/navigationOptions';
+import LoginContainer from './screens/Login';
 
 
 const AppNavigator = createStackNavigator({
+    [Routes.Login]: {
+      screen: LoginContainer,
+      navigationOptions: loginNavigationOptions
+    },
     [Routes.Home]: {
       screen: createBottomTabNavigator({
         [Routes.BookList]: {

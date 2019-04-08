@@ -11,6 +11,7 @@ export const SPACING_VERY_SMALL = 10;
 export const SPACING_SMALL = 15
 export const SPACING_MEDIUM = 20;
 export const SPACING_BIG = 30;
+export const SPACING_EXTRA_BIG = 65;
 
 export const RADIUS_SMALL = 5;
 export const RADIUS_BIG = 100;
