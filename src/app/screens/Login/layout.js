@@ -1,11 +1,9 @@
 import React from 'react';
 import { ImageBackground, Text, TextInput, TouchableOpacity } from 'react-native';
-import { lightGray } from '../../../constants/colors';
-import styles from './styles';
+import styles, { commonProps } from './styles';
 import backgroundImage from '../../assets/bc_start.png'
 
 function Login({validateEmail, invalidEmail, email, onChangeEmail, validatePassword, password, invalidPassword, onChangePassword}) {
-    const commonProps = { style: styles.input, numberOfLines: 1, placeholderTextColor: lightGray };
     
     renderInvalidEmailText = () => invalidEmail && <Text style={styles.errorMessage}>Please enter a valid email address.</Text>;
 
@@ -28,7 +26,7 @@ function Login({validateEmail, invalidEmail, email, onChangeEmail, validatePassw
                 <TextInput
                     {...commonProps}
                     placeholder="Password"
-                    secureTextEntry={true}
+                    secureTextEntry
                     autoComplete='password'
                     textContentType='password'
                     onChangeText={onChangePassword}
