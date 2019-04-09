@@ -1,13 +1,23 @@
 import { StyleSheet } from 'react-native';
-import {EXTRA_LARGE, BOLD, SMALL } from '../../../constants/fontSizes';
-import { white, lightGray } from '../../../constants/colors';
-import { SPACING_MEDIUM, RADIUS_BIG, BUTTON_HEIGHT, SPACING_EXTRA_BIG, RADIUS_SMALL, BORDER_WIDTH } from '../../../constants/dimensions';
+import {EXTRA_LARGE, BOLD, SMALL, EXTRA_SMALL } from '../../../constants/fontSizes';
+import { white, red, lightGray, gray } from '../../../constants/colors';
+import { SPACING_MEDIUM, RADIUS_BIG, BUTTON_HEIGHT, SPACING_EXTRA_BIG, RADIUS_SMALL, BORDER_WIDTH, SPACING_SMALL } from '../../../constants/dimensions';
 import { textShadow } from '../../../constants/shadows';
 
 const text = {
     fontSize: SMALL,
     fontWeight: BOLD,
     color: white
+}
+const button = {
+    width: '100%',
+    height: BUTTON_HEIGHT,
+    borderRadius: RADIUS_BIG,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: BORDER_WIDTH,
+    backgroundColor: 'transparent',
+    marginTop: SPACING_SMALL
 }
 
 export default  styles = StyleSheet.create({
@@ -33,23 +43,28 @@ export default  styles = StyleSheet.create({
         borderBottomWidth: BORDER_WIDTH,
         ...text
     },
-    button: {
-        width: '100%',
-        height: BUTTON_HEIGHT,
-        borderRadius: RADIUS_BIG,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: BORDER_WIDTH,
-        borderColor: white,
-        backgroundColor: 'transparent'
+    enabledButton: {
+        ...button,
+        borderColor: white
     },
-    buttonText: {
+    disabledButton: {
+        ...button,
+        borderColor: gray
+    },
+    enabledButtonText: {
         ...text
+    },
+    disabledButtonText: {
+        ...text,
+        color: gray
+    },
+    errorMessage: {
+        fontSize: EXTRA_SMALL,
+        color: red
+        
     }
 });
 
 
 export const commonProps = { style: styles.input, numberOfLines: 1, placeholderTextColor: lightGray };
-
-
 

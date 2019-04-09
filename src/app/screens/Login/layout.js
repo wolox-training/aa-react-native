@@ -3,8 +3,12 @@ import { ImageBackground, Text, TextInput, TouchableOpacity } from 'react-native
 import styles, { commonProps } from './styles';
 import backgroundImage from '../../assets/bc_start.png'
 
+function Login({validateEmail, invalidEmail, email, onChangeEmail, validatePassword, password, invalidPassword, onChangePassword, disableSubmit, onPress}) {
+    
+    renderInvalidEmailText = () => invalidEmail && <Text style={styles.errorMessage}>Please enter a valid email address.</Text>;
 
-function Login() {
+    renderInvalidPasswordText = () => invalidPassword && <Text style={styles.errorMessage}>Password must be at least 8 characters long.</Text>;
+
     return (
         <ImageBackground source={backgroundImage} style={styles.backgroundImage} resizeMode="cover">
                 <Text style={styles.title}>WBOOKS</Text>
@@ -14,16 +18,25 @@ function Login() {
                     autoComplete='email'
                     keyboardType='email-address'
                     textContentType='emailAddress'
+                    onChangeText={onChangeEmail}
+                    value={email}
+                    onEndEditing={validateEmail}
                 />
+                {renderInvalidEmailText()}
                 <TextInput
                     {...commonProps}
                     placeholder="Password"
                     secureTextEntry
                     autoComplete='password'
                     textContentType='password'
+                    onChangeText={onChangePassword}
+                    value={password}
+                    onEndEditing={validatePassword}
                 />
-                 <TouchableOpacity style={styles.button}>
-                     <Text style={styles.buttonText}>LOG IN</Text>
+                {renderInvalidPasswordText()}
+
+                 <TouchableOpacity style={disableSubmit ? styles.disabledButton : styles.enabledButton} disabled={disableSubmit} onPress={onPress}>
+                     <Text style={disableSubmit ? styles.disabledButtonText : styles.enabledButtonText}>LOG IN</Text>
                  </TouchableOpacity>
         </ImageBackground>
     )
