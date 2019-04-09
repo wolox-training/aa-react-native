@@ -16,7 +16,8 @@ import TabBarIcon from '../app/components/TabBarIcon';
 export const defaultNavigationOptions = {
     headerStyle: {height: HEADER_HEIGHT, width: '100%', backgroundColor: 'transparent'},
     headerBackground: <HeaderBackground/>,
-    headerTitleStyle: { color: white, fontSize: MEDIUM, fontWeight: BOLD}
+    headerTitleStyle: { color: white, fontSize: MEDIUM, fontWeight: BOLD},
+    headerLeft: null
 };
 
 export const bookDetailNavigationOptions = {

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Login from './layout';
 
 import { emailRegex } from '../../../constants/regex';
+import { Home } from '../../../constants/routes';
 
 class LoginContainer extends Component {
     
@@ -28,6 +29,10 @@ class LoginContainer extends Component {
         }
     };
 
+    loginOnPressHandler = () => {
+        const {navigation} = this.props;
+        navigation.navigate(Home);
+    };
 
     render() {
         return (
@@ -37,6 +42,8 @@ class LoginContainer extends Component {
                 onChangeEmail={this.onChangeEmail}
                 validatePassword={this.validatePassword}
                 onChangePassword={this.onChangePassword}
+                disableSubmit={!this.state.email.length || !this.state.password.length || this.state.password.length < 8 || this.state.invalidEmail || this.state.invalidPassword}
+                onPress={this.loginOnPressHandler}
             />
         );
     }
