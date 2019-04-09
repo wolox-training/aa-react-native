@@ -14,8 +14,6 @@ function Login() {
                     autoComplete='email'
                     keyboardType='email-address'
                     textContentType='emailAddress'
-                    commonProps
-
                 />
                 <TextInput
                     {...commonProps}
