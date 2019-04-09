@@ -19,10 +19,9 @@ export default  styles = StyleSheet.create({
         paddingHorizontal: SPACING_EXTRA_BIG
     },
     title: {
-        fontSize: EXTRA_LARGE,
-        color: white,
-        fontWeight: BOLD,
-        ...textShadow
+        ...text,
+        ...textShadow,
+        fontSize: EXTRA_LARGE
     },
     input: {
         width: '100%',
