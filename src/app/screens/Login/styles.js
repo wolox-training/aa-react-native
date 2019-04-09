@@ -1,10 +1,16 @@
 import { StyleSheet } from 'react-native';
 import {EXTRA_LARGE, BOLD, SMALL } from '../../../constants/fontSizes';
-import { white } from '../../../constants/colors';
+import { white, lightGray } from '../../../constants/colors';
 import { SPACING_MEDIUM, RADIUS_BIG, BUTTON_HEIGHT, SPACING_EXTRA_BIG, RADIUS_SMALL, BORDER_WIDTH } from '../../../constants/dimensions';
 import { textShadow } from '../../../constants/shadows';
 
-export default StyleSheet.create({
+const text = {
+    fontSize: SMALL,
+    fontWeight: BOLD,
+    color: white
+}
+
+export default  styles = StyleSheet.create({
 
     backgroundImage: {
         flex: 1,
@@ -26,9 +32,7 @@ export default StyleSheet.create({
         borderRadius: RADIUS_SMALL,
         borderColor: white,
         borderBottomWidth: BORDER_WIDTH,
-        color: white,
-        fontSize: SMALL,
-        fontWeight: BOLD
+        ...text
     },
     button: {
         width: '100%',
@@ -41,10 +45,12 @@ export default StyleSheet.create({
         backgroundColor: 'transparent'
     },
     buttonText: {
-        fontSize: SMALL,
-        fontWeight: BOLD,
-        color: white
+        ...text
     }
 });
+
+
+export const commonProps = { style: styles.input, numberOfLines: 1, placeholderTextColor: lightGray };
+
 
 
