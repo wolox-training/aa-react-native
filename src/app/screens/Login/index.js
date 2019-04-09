@@ -14,23 +14,17 @@ class LoginContainer extends Component {
     onChangePassword = password => this.setState({password:password});
 
     validateEmail = () => {
-        if(emailRegex.test(this.state.email)) {
-            this.setState({invalidEmail: false});
-        } else {
-            this.setState({invalidEmail: true});
-        }
+        const { email } = this.state;
+        this.setState({ invalidEmail: !emailRegex.test(email) });
     };
 
     validatePassword = () => {
-        if(this.state.password.length >= 8) {
-            this.setState({invalidPassword: false});
-        } else {
-            this.setState({invalidPassword: true});
-        }
+        const { password } = this.state;
+        this.setState({ invalidPassword: password.length < 8 });
     };
 
     loginOnPressHandler = () => {
-        const {navigation} = this.props;
+        const { navigation } = this.props;
         navigation.navigate(Home);
     };
 
