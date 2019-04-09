@@ -30,12 +30,18 @@ export const bookListNavigationOptions = {
     tabBarIcon: ({focused}) => <TabBarIcon focused={focused}  inactiveIcon={libraryIcon} activeIcon={libraryActiveIcon}/>
   };
 
-  export const dummyNavigationOptions = {
+export const dummyNavigationOptions = {
       title: DUMMY,
       tabBarLabel: DUMMY,
       tabBarIcon: ({focused}) => <TabBarIcon focused={focused}  inactiveIcon={settingsIcon} activeIcon={settingsActiveIcon}/>
-  }
+}
 
-  export const childTabsNavigationOptions = ({ navigation, screenProps }) =>
+export const childTabsNavigationOptions = ({ navigation, screenProps }) =>
  getActiveChildNavigationOptions(navigation, screenProps);
+
+export const loginNavigationOptions = {
+    headerMode: 'none',
+    header: null
+};
+
 
