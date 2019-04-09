@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import {EXTRA_LARGE, BOLD, SMALL } from '../../../constants/fontSizes';
+import {EXTRA_LARGE, BOLD, SMALL, EXTRA_SMALL } from '../../../constants/fontSizes';
 import { white, red, lightGray, gray } from '../../../constants/colors';
 import { SPACING_MEDIUM, RADIUS_BIG, BUTTON_HEIGHT, SPACING_EXTRA_BIG, RADIUS_SMALL, BORDER_WIDTH, SPACING_SMALL } from '../../../constants/dimensions';
 import { textShadow } from '../../../constants/shadows';
@@ -59,7 +59,7 @@ export default  styles = StyleSheet.create({
         color: gray
     },
     errorMessage: {
-        fontSize: SMALL,
+        fontSize: EXTRA_SMALL,
         color: red
         
     }
