@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import {EXTRA_LARGE, BOLD, SMALL } from '../../../constants/fontSizes';
-import { white } from '../../../constants/colors';
-import { SPACING_MEDIUM, RADIUS_BIG, BUTTON_HEIGHT, SPACING_EXTRA_BIG, RADIUS_SMALL, BORDER_WIDTH } from '../../../constants/dimensions';
+import { white, red } from '../../../constants/colors';
+import { SPACING_MEDIUM, RADIUS_BIG, BUTTON_HEIGHT, SPACING_EXTRA_BIG, RADIUS_SMALL, BORDER_WIDTH, SPACING_SMALL } from '../../../constants/dimensions';
 import { textShadow } from '../../../constants/shadows';
 
 export default StyleSheet.create({
@@ -38,12 +38,17 @@ export default StyleSheet.create({
         justifyContent: 'center',
         borderWidth: BORDER_WIDTH,
         borderColor: white,
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        marginTop: SPACING_SMALL
     },
     buttonText: {
         fontSize: SMALL,
         fontWeight: BOLD,
         color: white
+    },
+    errorMessage: {
+        fontSize: SMALL,
+        color: red
     }
 });
 
