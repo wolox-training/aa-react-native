@@ -1,45 +1,47 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { ImageBackground, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles, { commonProps } from './styles';
 import backgroundImage from '../../assets/bc_start.png'
 
-function Login({validateEmail, invalidEmail, email, onChangeEmail, validatePassword, password, invalidPassword, onChangePassword, disableSubmit, onPress}) {
+class Login extends PureComponent {
     
-    renderInvalidEmailText = () => invalidEmail && <Text style={styles.errorMessage}>Please enter a valid email address.</Text>;
+    renderErrorMessage = (invalidCondition, errorMessage) => invalidCondition && <Text style={styles.errorMessage}>{errorMessage}</Text>;
 
-    renderInvalidPasswordText = () => invalidPassword && <Text style={styles.errorMessage}>Password must be at least 8 characters long.</Text>;
+    render() {
+        const {validateEmail, invalidEmail, email, onChangeEmail, validatePassword, password, invalidPassword, onChangePassword, disableSubmit, onPress, signInErrorMessage} = this.props;
+        return (
+            <ImageBackground source={backgroundImage} style={styles.backgroundImage} resizeMode="cover">
+                    <Text style={styles.title}>WBOOKS</Text>
+                    {this.renderErrorMessage(!!signInErrorMessage, signInErrorMessage)}
+                    <TextInput
+                        {...commonProps}
+                        placeholder="Email"
+                        autoComplete='email'
+                        keyboardType='email-address'
+                        textContentType='emailAddress'
+                        onChangeText={onChangeEmail}
+                        value={email}
+                        onEndEditing={validateEmail}
+                    />
+                    {this.renderErrorMessage(invalidEmail, 'Please enter a valid email address.')}
+                    <TextInput
+                        {...commonProps}
+                        placeholder="Password"
+                        secureTextEntry
+                        autoComplete='password'
+                        textContentType='password'
+                        onChangeText={onChangePassword}
+                        value={password}
+                        onEndEditing={validatePassword}
+                    />
+                    {this.renderErrorMessage(invalidPassword, 'Password must be at least 8 characters long.')}
 
-    return (
-        <ImageBackground source={backgroundImage} style={styles.backgroundImage} resizeMode="cover">
-                <Text style={styles.title}>WBOOKS</Text>
-                <TextInput
-                    {...commonProps}
-                    placeholder="Email"
-                    autoComplete='email'
-                    keyboardType='email-address'
-                    textContentType='emailAddress'
-                    onChangeText={onChangeEmail}
-                    value={email}
-                    onEndEditing={validateEmail}
-                />
-                {renderInvalidEmailText()}
-                <TextInput
-                    {...commonProps}
-                    placeholder="Password"
-                    secureTextEntry
-                    autoComplete='password'
-                    textContentType='password'
-                    onChangeText={onChangePassword}
-                    value={password}
-                    onEndEditing={validatePassword}
-                />
-                {renderInvalidPasswordText()}
-
-                 <TouchableOpacity style={disableSubmit ? styles.disabledButton : styles.enabledButton} disabled={disableSubmit} onPress={onPress}>
-                     <Text style={disableSubmit ? styles.disabledButtonText : styles.enabledButtonText}>LOG IN</Text>
-                 </TouchableOpacity>
-        </ImageBackground>
-    )
+                    <TouchableOpacity style={[styles.button, disableSubmit && styles.disabledButton]} disabled={disableSubmit} onPress={onPress}>
+                        <Text style={[styles.buttonText, disableSubmit && styles.disabledButtonText]}>LOG IN</Text>
+                    </TouchableOpacity>
+            </ImageBackground>
+        )
+    }
 };
 
 export default Login;

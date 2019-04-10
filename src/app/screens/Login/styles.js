@@ -9,16 +9,6 @@ const text = {
     fontWeight: BOLD,
     color: white
 }
-const button = {
-    width: '100%',
-    height: BUTTON_HEIGHT,
-    borderRadius: RADIUS_BIG,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: BORDER_WIDTH,
-    backgroundColor: 'transparent',
-    marginTop: SPACING_SMALL
-}
 
 export default  styles = StyleSheet.create({
 
@@ -43,19 +33,22 @@ export default  styles = StyleSheet.create({
         borderBottomWidth: BORDER_WIDTH,
         ...text
     },
-    enabledButton: {
-        ...button,
+    button: {
+        width: '100%',
+        height: BUTTON_HEIGHT,
+        borderRadius: RADIUS_BIG,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: BORDER_WIDTH,
+        backgroundColor: 'transparent',
+        marginTop: SPACING_SMALL,
         borderColor: white
     },
     disabledButton: {
-        ...button,
         borderColor: gray
     },
-    enabledButtonText: {
-        ...text
-    },
+    buttonText: text,
     disabledButtonText: {
-        ...text,
         color: gray
     },
     errorMessage: {
