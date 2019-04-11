@@ -30,7 +30,7 @@ class LoginContainer extends Component {
         const { email, password } = this.state;
         await signIn(email, password);
         const { signInErrorMessage } = this.props;
-        return !signInErrorMessage && navigation.replace(Home);
+        !signInErrorMessage && navigation.replace(Home);
     };
 
     render() {
