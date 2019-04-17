@@ -40,7 +40,7 @@ export const dummyNavigationOptions = {
 export const childTabsNavigationOptions = ({ navigation, screenProps }) =>
  getActiveChildNavigationOptions(navigation, screenProps);
 
-export const loginNavigationOptions = {
+export const noHeaderNavigationOptions = {
     headerMode: 'none',
     header: null
 };

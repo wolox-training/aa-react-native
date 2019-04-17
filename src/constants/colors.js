@@ -7,4 +7,5 @@ export const white = '#FFF';
 export const backgroundColor = '#E9F5F9';
 export const skyBlue = '#00ADEE';
 export const red = "red";
+export const blue = '#288CCB';
 
