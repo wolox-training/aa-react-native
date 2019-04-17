@@ -36,9 +36,9 @@ const authSetup = async dispatch => {
   const currentUserHeaders = await getCurrentUserHeaders();
   if(currentUser && currentUserHeaders) {
     api.setHeaders(currentUserHeaders);
+    return dispatch(AuthActions.authInit(currentUser));
   }
-  dispatch(AuthActions.authInit(currentUser))
-  return !currentUserHeaders ? null : currentUser;
+  return dispatch(AuthActions.authInit(null));
 };
 
 export default {

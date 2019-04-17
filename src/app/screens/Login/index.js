@@ -6,7 +6,6 @@ import Login from './layout';
 import AuthActions from '../../../redux/auth/actions';
 import { emailRegex } from '../../../constants/regex';
 import { Home } from '../../../constants/routes';
-import WithLoading from '../../components/WithLoading';
 class LoginContainer extends Component {
     
     state = { invalidEmail: false, email: '' , invalidPassword: false, password: '' };
@@ -34,13 +33,13 @@ class LoginContainer extends Component {
     };
 
     render() {
-        const { signInErrorMessage } = this.props;
+        const { signInErrorMessage, isLoading } = this.props;
         const { email, password, invalidEmail, invalidPassword } = this.state;
         const disableSubmit = !email.length || !password.length || password.length < 8 || invalidEmail || invalidPassword;
 
         return (
-            <Login 
-                { ...this.state }
+            <Login
+                { ...this.state}
                 validateEmail={this.validateEmail} 
                 onChangeEmail={this.onChangeEmail}
                 validatePassword={this.validatePassword}
@@ -48,6 +47,7 @@ class LoginContainer extends Component {
                 disableSubmit={disableSubmit}
                 onPress={this.loginOnPressHandler}
                 signInErrorMessage={signInErrorMessage}
+                isLoading={isLoading}
             />
         );
     }
@@ -64,7 +64,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default WithLoading(props => props.isLoading)(connect(mapStateToProps, mapDispatchToProps)(LoginContainer));
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
 
 
 

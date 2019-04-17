@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react';
 import { ImageBackground, Text, TextInput, TouchableOpacity } from 'react-native';
-import styles, { commonProps } from './styles';
+
 import backgroundImage from '../../assets/bc_start.png'
+import WithLoading from '../../components/WithLoading';
+
+import styles, { commonProps } from './styles';
 
 class Login extends PureComponent {
     
@@ -44,5 +47,5 @@ class Login extends PureComponent {
     }
 };
 
-export default Login;
+export default WithLoading(props => props.isLoading)(Login);
 
