@@ -1,7 +1,47 @@
+import AsyncStorage from '@react-native-community/async-storage';
 import api from '../config/api';
 
 const ENDPOINT = '/auth';
 
+const authStorageKeys = {
+  currentUser: '@Auth:currentUser2',
+  currentUserHeaders: '@Auth:currentUserHeaders'
+};
+
+const authHeaders = {
+  accessToken: 'Access-Token',
+  client: 'Client',
+  uid: 'Uid'
+};
+
+const setCurrentUser = async (user, headers) => {
+  const newHeaders = {
+    [authHeaders.accessToken]: headers.AccessToken,
+    [authHeaders.client]: headers.Client,
+    [authHeaders.uid]: headers.Uid
+  };
+  api.setHeaders(newHeaders);
+  await AsyncStorage.setItem(authStorageKeys.currentUserHeaders, JSON.stringify(newHeaders));
+  return AsyncStorage.setItem(authStorageKeys.currentUser, JSON.stringify(user));
+};
+
+const getCurrentUser = async () => AsyncStorage.getItem(authStorageKeys.currentUser).then(JSON.parse);
+
+const getCurrentUserHeaders = async () => AsyncStorage.getItem(authStorageKeys.currentUserHeaders).then(JSON.parse);
+
+const authSetup = async () => {
+  const currentUser = await getCurrentUser();
+  const currentUserHeaders = await getCurrentUserHeaders();
+
+  if(currentUser && currentUserHeaders) {
+    api.setHeaders(currentUserHeaders);
+    return currentUser;
+  }
+  return null;
+};
+
 export default {
-  signIn: (email, password) => api.post(`${ENDPOINT}/sign_in`, { email, password })
+  signIn: (email, password) => api.post(`${ENDPOINT}/sign_in`, { email, password }),
+  setCurrentUser,
+  authSetup
 };

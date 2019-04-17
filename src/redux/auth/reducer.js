@@ -13,6 +13,8 @@ function reducer(state = initialState, action) {
       return {...state, currentUser: action.payload, signInErrorMessage: null};
     case actions.SIGN_IN_FAILURE: 
       return {...state, signInErrorMessage: action.payload};
+    case actions.AUTH_INIT:
+      return {...state, currentUser: action.payload};
     default:
       return state;
   }
