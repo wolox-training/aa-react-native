@@ -3,40 +3,45 @@ import api from '../config/api';
 
 const ENDPOINT = '/auth';
 
+const authStorageKeys = {
+  currentUser: '@Auth:currentUser2',
+  currentUserHeaders: '@Auth:currentUserHeaders'
+};
 
-const storeData = async (key, value) => {
-  try {
-    await AsyncStorage.setItem(key, value)
-  } catch (e) {
-    // saving error
+const authHeaders = {
+  accessToken: 'Access-Token',
+  client: 'Client',
+  uid: 'Uid'
+};
+
+const setCurrentUser = async (user, headers) => {
+  const newHeaders = {
+    [authHeaders.accessToken]: headers.AccessToken,
+    [authHeaders.client]: headers.Client,
+    [authHeaders.uid]: headers.Uid
+  };
+  api.setHeaders(newHeaders);
+  await AsyncStorage.setItem(authStorageKeys.currentUserHeaders, JSON.stringify(newHeaders));
+  return AsyncStorage.setItem(authStorageKeys.currentUser, JSON.stringify(user));
+};
+
+const getCurrentUser = async () => AsyncStorage.getItem(authStorageKeys.currentUser).then(JSON.parse);
+
+const getCurrentUserHeaders = async () => AsyncStorage.getItem(authStorageKeys.currentUserHeaders).then(JSON.parse);
+
+const authSetup = async () => {
+  const currentUser = await getCurrentUser();
+  const currentUserHeaders = await getCurrentUserHeaders();
+
+  if(currentUser && currentUserHeaders) {
+    api.setHeaders(currentUserHeaders);
+    return currentUser;
   }
-}
-
-
-const getData = async (key) => {
-  try {
-    return await AsyncStorage.getItem(key)
-
-  } catch(e) {
-    // error reading value
-  }
-}
+  return null;
+};
 
 export default {
-  signIn: (email, password) => {
-    const response = api.post(`${ENDPOINT}/sign_in`, { email, password });
-    if (response.ok) {
-      storeData('@Auth:currentUser', response.data);
-      storeData('@Auth:accessToken', response.headers.AccessToken);
-      storeData('@Auth:client', response.headers.client);
-
-      api.setHeaders({
-        'Acces-Token': response.headers.AccessToken,
-        Client: response.headers.Client,
-        Uid: response.headers.Uid
-      });
-    }
-    return response;
-  },
-  isSignIn: async () => await getData('@Auth:currentUser')
+  signIn: (email, password) => api.post(`${ENDPOINT}/sign_in`, { email, password }),
+  setCurrentUser,
+  authSetup
 };

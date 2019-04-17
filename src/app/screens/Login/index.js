@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 import Login from './layout';
 
+import AuthService from '../../../services/AuthService';
 import AuthActions from '../../../redux/auth/actions';
 import { emailRegex } from '../../../constants/regex';
 import { Home } from '../../../constants/routes';
-
 class LoginContainer extends Component {
     
     state = { invalidEmail: false, email: '' , invalidPassword: false, password: '' };
@@ -33,11 +33,20 @@ class LoginContainer extends Component {
         !signInErrorMessage && navigation.replace(Home);
     };
 
+    async componentDidMount() {
+        const { authInit, navigation } = this.props;
+        const user = await AuthService.authSetup();
+        if(user) {
+            authInit(user);
+            navigation.replace(Home);
+        }
+    }
+
     render() {
         const { signInErrorMessage } = this.props;
         const { email, password, invalidEmail, invalidPassword } = this.state;
         const disableSubmit = !email.length || !password.length || password.length < 8 || invalidEmail || invalidPassword;
-        
+
         return (
             <Login 
                 { ...this.state }
@@ -57,8 +66,9 @@ const mapStateToProps = state => ({
     signInErrorMessage: state.signInErrorMessage
 });
 
-const mapDispatchToProps = dispacth => ({
-    signIn: (email, password) => dispacth(AuthActions.signIn(email, password))
+const mapDispatchToProps = dispatch => ({
+    signIn: (email, password) => dispatch(AuthActions.signIn(email, password)),
+    authInit: (user) => dispatch(AuthActions.authInit(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
