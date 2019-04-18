@@ -54,7 +54,6 @@ export default  styles = StyleSheet.create({
     errorMessage: {
         fontSize: EXTRA_SMALL,
         color: red
-        
     }
 });
 

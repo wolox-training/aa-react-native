@@ -1,34 +1,40 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { connect } from 'react-redux';
 
-import Book from './components/Book';
-import { defaultBooks } from './books';
-import styles from './styles';
+import BookList from './layout';
 
-import { BookDetail } from '../../../constants/routes';
-class BookList extends Component {
+import BooksActions from '../../../redux/books/actions';
+class BookListContainer extends Component {
 
-  renderItem = ({item}) =>  <Book name={item.title} author={item.author} imageSource={item.imageSource} onPress={() => this.handlePressBook(item)}/>;
+    handlePressBook = (item) => {
+        const {navigation} = this.props;
+        navigation.navigate(BookDetail, {book: item});
+    }
 
-  keyExtractor = (item) => `${item.id}`;
-  
-  handlePressBook = (item) => {
-    const {navigation} = this.props;
-    navigation.navigate(BookDetail, {book: item});
-  }
+    async componentDidMount() {
+        const { getBooks } = this.props;
+        await getBooks();
+    }
 
-  render() {
-    const {books} = this.props;
-    return (
-        <FlatList
-          data={books || defaultBooks}
-          renderItem={this.renderItem}
-          keyExtractor={this.keyExtractor}
-          contentContainerStyle={styles.container}
-        />
-      );
-  }
+    render() {
+        console.warn(this.props.books);
+        return (
+            <BookList handlePressBook={this.handlePressBook} {...this.props}/>
+        );
+    }
+
 }
 
-export default BookList;
+const mapStateToProps = state => ({
+    getBooksErrorMessage: state.books.getBooksErrorMessage,
+    books: state.books.books,
+    isLoading: state.books.isLoading
+});
+
+const mapDispatchToProps = dispatch => ({
+    getBooks: () => dispatch(BooksActions.GET_BOOKS),
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookListContainer);
 
