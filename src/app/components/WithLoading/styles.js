@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { SMALL } from '../../../constants/fontSizes';
-import { backgroundColor, gray } from '../../../constants/colors';
+import { backgroundColor, blue } from '../../../constants/colors';
 import { SPACING_VERY_SMALL } from '../../../constants/dimensions';
 
 export default StyleSheet.create({
@@ -13,7 +13,7 @@ export default StyleSheet.create({
     },
     text: {
         fontSize: SMALL,
-        color: gray,
+        color: blue,
         marginTop: SPACING_VERY_SMALL
     }
 });
