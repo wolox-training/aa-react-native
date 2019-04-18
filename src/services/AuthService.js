@@ -1,5 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage';
+
 import api from '../config/api';
+import AuthActions from '../redux/auth/actions';
 
 const ENDPOINT = '/auth';
 
@@ -29,15 +31,14 @@ const getCurrentUser = async () => AsyncStorage.getItem(authStorageKeys.currentU
 
 const getCurrentUserHeaders = async () => AsyncStorage.getItem(authStorageKeys.currentUserHeaders).then(JSON.parse);
 
-const authSetup = async () => {
+const authSetup = async dispatch => {
   const currentUser = await getCurrentUser();
   const currentUserHeaders = await getCurrentUserHeaders();
-
   if(currentUser && currentUserHeaders) {
     api.setHeaders(currentUserHeaders);
-    return currentUser;
+    return dispatch(AuthActions.authInit(currentUser));
   }
-  return null;
+  return dispatch(AuthActions.authInit(null));
 };
 
 export default {

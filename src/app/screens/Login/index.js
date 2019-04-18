@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import Login from './layout';
 
-import AuthService from '../../../services/AuthService';
 import AuthActions from '../../../redux/auth/actions';
 import { emailRegex } from '../../../constants/regex';
 import { Home } from '../../../constants/routes';
@@ -33,23 +32,14 @@ class LoginContainer extends Component {
         !signInErrorMessage && navigation.replace(Home);
     };
 
-    async componentDidMount() {
-        const { authInit, navigation } = this.props;
-        const user = await AuthService.authSetup();
-        if(user) {
-            authInit(user);
-            navigation.replace(Home);
-        }
-    }
-
     render() {
-        const { signInErrorMessage } = this.props;
+        const { signInErrorMessage, isLoading } = this.props;
         const { email, password, invalidEmail, invalidPassword } = this.state;
         const disableSubmit = !email.length || !password.length || password.length < 8 || invalidEmail || invalidPassword;
 
         return (
-            <Login 
-                { ...this.state }
+            <Login
+                { ...this.state}
                 validateEmail={this.validateEmail} 
                 onChangeEmail={this.onChangeEmail}
                 validatePassword={this.validatePassword}
@@ -57,19 +47,22 @@ class LoginContainer extends Component {
                 disableSubmit={disableSubmit}
                 onPress={this.loginOnPressHandler}
                 signInErrorMessage={signInErrorMessage}
+                isLoading={isLoading}
             />
         );
     }
 }
 
 const mapStateToProps = state => ({
-    signInErrorMessage: state.signInErrorMessage
+    signInErrorMessage: state.signInErrorMessage,
+    isLoading: state.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
     signIn: (email, password) => dispatch(AuthActions.signIn(email, password)),
     authInit: (user) => dispatch(AuthActions.authInit(user))
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
 

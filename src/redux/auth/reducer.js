@@ -2,19 +2,21 @@ import { actions } from './actions';
 
 const initialState = {
   currentUser: null,
-  signInErrorMessage: null
+  signInErrorMessage: null,
+  isLoading: false,
+  initialLoading: true
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
     case actions.SIGN_IN: 
-      return {...state};
+      return {...state, isLoading: true};
     case actions.SIGN_IN_SUCCESS: 
-      return {...state, currentUser: action.payload, signInErrorMessage: null};
+      return {...state, currentUser: action.payload, signInErrorMessage: null, isLoading: false};
     case actions.SIGN_IN_FAILURE: 
-      return {...state, signInErrorMessage: action.payload};
+      return {...state, signInErrorMessage: action.payload, isLoading: false};
     case actions.AUTH_INIT:
-      return {...state, currentUser: action.payload};
+      return {...state, currentUser: action.payload, initialLoading: false};
     default:
       return state;
   }
