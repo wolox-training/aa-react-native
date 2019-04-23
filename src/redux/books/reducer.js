@@ -1,5 +1,10 @@
 import { actions } from './actions';
 
+const stateDescription = {
+  books: null
+};
+
+/*
 const initialState = {
     books: null,
     getBooksErrorMessage: null,
@@ -17,7 +22,13 @@ function reducer(state = initialState, action) {
       default:
         return state;
     }
-  }
+  }*/
   
-  export default reducer;
+  const initialState = completeState(stateDescription);
+
+  const reducerDescription = {
+    primaryActions: [actions.GET_BOOKS],
+  };
+  
+  export default createReducer(initialState, completeReducer(reducerDescription));
 

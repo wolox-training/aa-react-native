@@ -1,5 +1,10 @@
 import BookService from '../../services/BookService';
+import { createTypes, completeTypes } from 'redux-recompose';
 
+const getBooksTarget = 'books';
+export const actions = createTypes(completeTypes(['GET_BOOKS']), '@@BOOKS');
+
+/*
 export const actions = {
     GET_BOOKS: '@@BOOKS/GET_BOOKS',
     GET_BOOKS_SUCCESS: '@@BOOKS/GET_BOOKS_SUCCESS',
@@ -22,6 +27,14 @@ export const actions = {
             });
         }
     }
+  };*/
+  
+  const actionsCreators = {
+    getBooks: () => ({
+        type: actions.GET_BOOKS,
+        target: getBooksTarget,
+        service: BookService.getBooks,
+    })
   };
   
   export default actionsCreators;
