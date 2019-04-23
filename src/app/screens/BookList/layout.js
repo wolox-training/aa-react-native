@@ -6,14 +6,13 @@ import styles from './styles';
 
 import WithLoading from '../../components/WithLoading';
 import { NO_BOOKS } from '../../../constants/errors';
-
-export const generateBookUri = book => `https${book.image.url.substring(4)}?id=${book.id}`
+import { generateBookUri } from '../../../utils/bookUtil';
 class BookList extends PureComponent {
 
 renderItem = ({item}) => { 
   const { onPressBook } = this.props;
   return (
-    <Book name={item.title} author={item.author} imageSource={{uri: generateBookUri(item)}} onPress={() => onPressBook(item)}/>
+    <Book name={item.title} author={item.author} imageSource={generateBookUri(item)} onPress={() => onPressBook(item)}/>
   ); 
 };
 
