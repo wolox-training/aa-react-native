@@ -5,18 +5,24 @@ import Book from './components/Book';
 import styles from './styles';
 
 import WithLoading from '../../components/WithLoading';
+import { NO_BOOKS } from '../../../constants/errors';
 
+export const generateBookUri = book => `https${book.image.url.substring(4)}?id=${book.id}`
 class BookList extends PureComponent {
 
-  renderItem = ({item}) =>  <Book name={item.title} author={item.author} imageSource={{uri: `https${item.image.url.substring(4)}?id=${item.id}`}} onPress={() => this.props.handlePressBook(item)}/>;
+renderItem = ({item}) => { 
+  const { onPressBook } = this.props;
+  return (
+    <Book name={item.title} author={item.author} imageSource={{uri: generateBookUri(item)}} onPress={() => onPressBook(item)}/>
+  ); 
+};
 
   keyExtractor = (item) => `${item.id}`;
 
   render() {
     const { books, getBooksErrorMessage } = this.props;
 
-    const errorMessage = !getBooksErrorMessage ?  'No books available at library.' : getBooksErrorMessage;
-    const error = <Text style={styles.errorMessage}>{errorMessage}</Text>;
+    const errorMessage = !getBooksErrorMessage ?  NO_BOOKS : getBooksErrorMessage;
     
     return (
       <FlatList 
@@ -24,7 +30,7 @@ class BookList extends PureComponent {
         renderItem={this.renderItem} 
         keyExtractor={this.keyExtractor} 
         contentContainerStyle={styles.container}
-        ListEmptyComponent={error}
+        ListEmptyComponent={<Text style={styles.errorMessage}>{errorMessage}</Text>}
       />
     );
   }
