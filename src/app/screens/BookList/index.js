@@ -20,7 +20,7 @@ class BookListContainer extends Component {
 
     render() {
         return (
-            <BookList handlePressBook={this.handlePressBook} {...this.props}/>
+            <BookList onPressBook={this.handlePressBook} {...this.props}/>
         );
     }
 
