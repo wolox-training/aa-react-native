@@ -8,7 +8,7 @@ import WithLoading from '../../components/WithLoading';
 
 class BookList extends PureComponent {
 
-  renderItem = ({item}) =>  <Book name={item.title} author={item.author} imageSource={{uri: `https${item.image.url.substring(4)}`}} onPress={() => this.props.handlePressBook(item)}/>;
+  renderItem = ({item}) =>  <Book name={item.title} author={item.author} imageSource={{uri: `https${item.image.url.substring(4)}?id=${item.id}`}} onPress={() => this.props.handlePressBook(item)}/>;
 
   keyExtractor = (item) => `${item.id}`;
 
