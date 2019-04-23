@@ -1,4 +1,5 @@
 import AuthService from '../../services/AuthService';
+
 export const actions = {
     SIGN_IN: '@@AUTH/SIGN_IN',
     SIGN_IN_SUCCESS: '@@AUTH/SIGN_IN_SUCCESS',

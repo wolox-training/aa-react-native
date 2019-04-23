@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import BookList from './layout';
 
 import BooksActions from '../../../redux/books/actions';
+import { BookDetail } from '../../../constants/routes';
+
 class BookListContainer extends Component {
 
     handlePressBook = (item) => {
@@ -17,7 +19,6 @@ class BookListContainer extends Component {
     }
 
     render() {
-        console.warn(this.props.books);
         return (
             <BookList handlePressBook={this.handlePressBook} {...this.props}/>
         );
@@ -32,7 +33,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    getBooks: () => dispatch(BooksActions.GET_BOOKS),
+    getBooks: () => dispatch(BooksActions.getBooks()),
 });
 
 
