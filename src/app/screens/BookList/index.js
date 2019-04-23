@@ -13,9 +13,9 @@ class BookListContainer extends Component {
         navigation.navigate(BookDetail, {book: item});
     }
 
-    async componentDidMount() {
+    componentDidMount() {
         const { getBooks } = this.props;
-        await getBooks();
+        getBooks();
     }
 
     render() {

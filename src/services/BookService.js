@@ -1,9 +1,9 @@
 import api from '../config/api';
 
 
-const ENDPOINT = '/books';
+const BOOKS_ENDPOINT = '/books';
 
 export default {
-    getBooks: () => api.get(ENDPOINT)
+    getBooks: () => api.get(BOOKS_ENDPOINT)
 };
 
