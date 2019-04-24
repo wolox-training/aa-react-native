@@ -11,7 +11,7 @@ const enhancers = [];
 middlewares.push(thunk);
 middlewares.push(fetchMiddleware);
 
-// configureMergeState((state, diff) => state.merge(diff));
+configureMergeState((state, diff) => state.merge(diff));
 
 enhancers.push(applyMiddleware(...middlewares));
 
