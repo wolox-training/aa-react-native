@@ -5,8 +5,8 @@ const signInTarget = 'currentUser';
 
 export const actions = createTypes(completeTypes(['SIGN_IN'], ['AUTH_INIT']), '@@AUTH');
 
-/*export const actions = {
-    SIGN_IN: '@@AUTH/SIGN_IN',
+/*export const  actions = {
+    SIGN_IN:'@@AUTH/SIGN_IN',
     SIGN_IN_SUCCESS: '@@AUTH/SIGN_IN_SUCCESS',
     SIGN_IN_FAILURE: '@@AUTH/SIGN_IN_FAILURE',
     AUTH_INIT: '@@AUTH/AUTH_INIT'
@@ -41,9 +41,7 @@ const actionsCreators = {
       service: AuthService.signIn,
       payload: { email, password },
       injections: [
-        withPostSuccess(async (response) => {
-          await AuthService.setCurrentUser(response.data, response.headers);
-        })
+        withPostSuccess(async (response) => AuthService.setCurrentUser(response.data, response.headers))
       ]
     })
   };
