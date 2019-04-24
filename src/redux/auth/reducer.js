@@ -1,4 +1,5 @@
 import { createReducer, completeReducer, completeState } from 'redux-recompose';
+import Immutable from 'seamless-immutable';
 import { actions } from './actions';
 
 const stateDescription = {
@@ -16,4 +17,4 @@ const reducerDescription = {
   }
 };
 
-export default createReducer(initialState, completeReducer(reducerDescription));
+export default createReducer(Immutable(initialState), completeReducer(reducerDescription));

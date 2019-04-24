@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { fetchMiddleware } from 'redux-recompose';
+import { fetchMiddleware, configureMergeState } from 'redux-recompose';
 
 import auth from './auth/reducer';
 import books from './books/reducer';
@@ -10,6 +10,8 @@ const enhancers = [];
 
 middlewares.push(thunk);
 middlewares.push(fetchMiddleware);
+
+// configureMergeState((state, diff) => state.merge(diff));
 
 enhancers.push(applyMiddleware(...middlewares));
 

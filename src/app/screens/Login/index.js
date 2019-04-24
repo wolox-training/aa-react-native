@@ -59,8 +59,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    signIn: (email, password) => dispatch(AuthActions.signIn(email, password)),
-    authInit: (user) => dispatch(AuthActions.authInit(user))
+    signIn: (email, password) => dispatch(AuthActions.signIn(email, password))
 });
 
 
