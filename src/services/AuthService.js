@@ -42,7 +42,7 @@ const authSetup = async dispatch => {
 };
 
 export default {
-  signIn: (email, password) => api.post(`${ENDPOINT}/sign_in`, { email, password }),
+  signIn: authData => api.post(`${ENDPOINT}/sign_in`, authData),
   setCurrentUser,
   authSetup
 };

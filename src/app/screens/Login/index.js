@@ -54,13 +54,12 @@ class LoginContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-    signInErrorMessage: state.auth.signInErrorMessage,
-    isLoading: state.auth.isLoading
+    signInErrorMessage: state.auth.currentUserError,
+    isLoading: state.auth.currentUserLoading
 });
 
 const mapDispatchToProps = dispatch => ({
-    signIn: (email, password) => dispatch(AuthActions.signIn(email, password)),
-    authInit: (user) => dispatch(AuthActions.authInit(user))
+    signIn: (email, password) => dispatch(AuthActions.signIn(email, password))
 });
 
 

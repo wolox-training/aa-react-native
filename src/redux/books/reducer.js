@@ -1,23 +1,15 @@
+import { createReducer, completeReducer, completeState } from 'redux-recompose';
+import Immutable from 'seamless-immutable';
 import { actions } from './actions';
 
-const initialState = {
-    books: null,
-    getBooksErrorMessage: null,
-    isLoading: false
-};
+const stateDescription = {
+  books: null
+};  
+  const initialState = completeState(stateDescription);
 
-function reducer(state = initialState, action) {
-    switch (action.type) {
-      case actions.GET_BOOKS: 
-        return {...state, isLoading: true};
-      case actions.GET_BOOKS_SUCCESS: 
-        return {...state, books: action.payload, getBooksErrorMessage: null, isLoading: false};
-      case actions.GET_BOOKS_FAILURE: 
-        return {...state, getBooksErrorMessage: action.payload, isLoading: false};
-      default:
-        return state;
-    }
-  }
+  const reducerDescription = {
+    primaryActions: [actions.GET_BOOKS],
+  };
   
-  export default reducer;
+  export default createReducer(Immutable(initialState), completeReducer(reducerDescription));
 
