@@ -1,5 +1,6 @@
 import React from 'react';
 import { getActiveChildNavigationOptions } from 'react-navigation';
+import { SearchBar } from 'react-native-elements';
 
 import libraryIcon from '../app/assets/ic_library.png';
 import libraryActiveIcon from '../app/assets/ic_library_active.png';
@@ -48,5 +49,11 @@ export const noHeaderNavigationOptions = {
 };
 
 export const dummyNavigationOptions = {
-    header: null
+    headerTitle:  <SearchBar
+                round
+                lightTheme
+                cancelButtonTitle="Cancel"
+                containerStyle={{backgroundColor: "transparent", flex: 1, marginHorizontal: 10,  borderBottomColor: 'transparent', borderTopColor: 'transparent'}}
+                inputContainerStyle={{backgroundColor: "white", height: 30, borderColor: "transparent", borderWidth: 0}}
+             />        
 }
