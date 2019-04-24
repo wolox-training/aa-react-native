@@ -18,9 +18,9 @@ const authHeaders = {
 
 const setCurrentUser = async (user, headers) => {
   const newHeaders = {
-    [authHeaders.accessToken]: headers.AccessToken,
-    [authHeaders.client]: headers.Client,
-    [authHeaders.uid]: headers.Uid
+    [authHeaders.accessToken]: headers["access-token"],
+    [authHeaders.client]: headers.client,
+    [authHeaders.uid]: headers.uid
   };
   api.setHeaders(newHeaders);
   await AsyncStorage.setItem(authStorageKeys.currentUserHeaders, JSON.stringify(newHeaders));
@@ -46,3 +46,4 @@ export default {
   setCurrentUser,
   authSetup
 };
+

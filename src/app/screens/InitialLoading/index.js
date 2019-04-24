@@ -23,8 +23,8 @@ class InitialLoading extends PureComponent {
 }
   
 const mapStateToProps = store => ({
-    initialLoading: store.initialLoading,
-    currentUser: store.currentUser
+    initialLoading: store.auth.initialLoading,
+    currentUser: store.auth.currentUser
 });
 
 const enhance = compose(

@@ -54,8 +54,8 @@ class LoginContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-    signInErrorMessage: state.signInErrorMessage,
-    isLoading: state.isLoading
+    signInErrorMessage: state.auth.signInErrorMessage,
+    isLoading: state.auth.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
