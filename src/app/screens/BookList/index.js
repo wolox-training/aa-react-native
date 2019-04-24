@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FlatList, Text } from 'react-native';
+import { Text } from 'react-native';
 
-import BookList from './layout';
+import BookList from './../../components/BookList';
 import styles from './styles';
 
 import BooksActions from '../../../redux/books/actions';
@@ -20,7 +20,6 @@ class BookListContainer extends Component {
         const { getBooks } = this.props;
         getBooks();
     }
-
 
     render() {
         const { getBooksErrorMessage } = this.props;

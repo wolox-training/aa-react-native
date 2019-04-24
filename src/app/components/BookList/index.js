@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { FlatList, Text } from 'react-native';
+import { FlatList } from 'react-native';
 
 import Book from './components/Book';
 import styles from './styles';
