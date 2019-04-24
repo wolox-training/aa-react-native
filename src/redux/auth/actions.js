@@ -11,6 +11,7 @@ const actionsCreators = {
       type: actions.SIGN_IN,
       target: signInTarget,
       service: AuthService.signIn,
+      failureSelector: response => response.data.errors[0],
       payload: { email, password },
       injections: [
         withPostSuccess(async (_, response) => AuthService.setCurrentUser(response.data, response.headers))
