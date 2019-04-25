@@ -40,7 +40,8 @@ const StackNavigator = createStackNavigator({
       navigationOptions: NavigationOptions.bookDetailNavigationOptions
     },
     [Routes.Search]: {
-      screen: Search
+      screen: Search,
+      navigationOptions: NavigationOptions.searchNavigationOptions
     }
   }, {
     defaultNavigationOptions: NavigationOptions.defaultNavigationOptions

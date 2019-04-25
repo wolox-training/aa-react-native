@@ -7,7 +7,7 @@ import  defaultImage from '../../../../assets/img_book6.png';
 function Book({name, author, imageSource, onPress}) {
     return (
         <TouchableOpacity style={styles.container} onPress={onPress}>
-            <Image style={styles.image} source={imageSource||defaultImage}/>
+            <Image style={styles.image} source={imageSource||defaultImage} resizeMode="cover"/>
             <View style = {styles.bookContainer}>
                 <Text style={styles.name} numberOfLines={1}>
                 {name}

@@ -18,14 +18,14 @@ renderItem = ({item}) => {
   keyExtractor = (item) => `${item.id}`;
 
   render() {
-    const { books, ListEmptyComponent } = this.props;    
+    const { books, listEmptyComponent } = this.props;    
     return (
       <FlatList 
         data={books} 
         renderItem={this.renderItem} 
         keyExtractor={this.keyExtractor} 
-        contentContainerStyle={styles.container}
-        ListEmptyComponent={ListEmptyComponent}
+        contentContainerStyle={(!books || !books.length) ? styles.noList : styles.container}
+        ListEmptyComponent={listEmptyComponent}
       />
     );
   }

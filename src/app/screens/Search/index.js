@@ -1,49 +1,41 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { SearchBar } from 'react-native-elements';
+import Immutable from 'seamless-immutable';
 
 import BookList from './../../components/BookList';
 
 import { BookDetail } from '../../../constants/routes';
-
+import SearchBarPlaceHolder from '../../components/SearchPlaceHolder';
+import styles from './styles';
 
 class Search extends Component {
 
-    static navigationOptions = () => {
-        const { search } = this.state;
-        return ({
-        headerTitle:  <SearchBar
-                    round
-                    lightTheme
-                    cancelButtonTitle="Cancel"
-                    value={search}
-                    onChangeText={this.updateSearch}
-                    containerStyle={{backgroundColor: "transparent", flex: 1, marginHorizontal: 10,  borderBottomColor: 'transparent', borderTopColor: 'transparent'}}
-                    inputContainerStyle={{backgroundColor: "white", height: 30, borderColor: "transparent", borderWidth: 0}}
-                 />        
-    });}
-
-    state = {search: ''};
-
-    updateSearch = search => this.setState(search);
-
-    handlePressBook = (item) => {
+    handlePressBook = item => {
         const {navigation} = this.props;
         navigation.navigate(BookDetail, {book: item});
     }
 
-    render() {
+    bookCompare = (a, b) => (a.title.toLowerCase() > b.title.toLowerCase()) ? 1 : -1
 
+    bookFilter = (book, search) => book.title.toLowerCase().includes(search.toLowerCase())
+
+    searchFilter = (books, search) => !search.length ? [] : Immutable.asMutable(books.filter(b => this.bookFilter(b, search))).sort(this.bookCompare)
+
+    render() {
+        const { isLoading, books, search } = this.props;
+        const listEmptyComponent = <SearchBarPlaceHolder/>;
         return (
-            <BookList onPressBook={this.handlePressBook} listEmptyComponent={null} {...this.props}/>
+            <View style={styles.container}>
+                <BookList onPressBook={this.handlePressBook} listEmptyComponent={listEmptyComponent} isLoading={isLoading} books={this.searchFilter(books, search)}/>
+            </View>
         );
     }
-
 }
 
 const mapStateToProps = state => ({
-    getBooksErrorMessage: state.books.booksError,
     books: state.books.books,
+    search: state.books.search,
     isLoading: state.books.booksLoading
 });
 
