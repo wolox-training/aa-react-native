@@ -27,9 +27,9 @@ class BookListContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-    getBooksErrorMessage: state.books.getBooksErrorMessage,
+    getBooksErrorMessage: state.books.booksError,
     books: state.books.books,
-    isLoading: state.books.isLoading
+    isLoading: state.books.booksLoading
 });
 
 const mapDispatchToProps = dispatch => ({
