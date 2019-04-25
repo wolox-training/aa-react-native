@@ -1,6 +1,5 @@
 import React from 'react';
 import { getActiveChildNavigationOptions } from 'react-navigation';
-import { SearchBar } from 'react-native-elements';
 
 import libraryIcon from '../app/assets/ic_library.png';
 import libraryActiveIcon from '../app/assets/ic_library_active.png';
@@ -34,11 +33,11 @@ export const bookListNavigationOptions = {
     headerRight: <SearchButton/>
   };
 
-/*export const dummyNavigationOptions = {
+export const dummyNavigationOptions = {
       title: DUMMY,
       tabBarLabel: DUMMY,
       tabBarIcon: ({focused}) => <TabBarIcon focused={focused}  inactiveIcon={settingsIcon} activeIcon={settingsActiveIcon}/>
-}*/
+}
 
 export const childTabsNavigationOptions = ({ navigation, screenProps }) =>
  getActiveChildNavigationOptions(navigation, screenProps);
@@ -48,12 +47,3 @@ export const noHeaderNavigationOptions = {
     header: null
 };
 
-export const dummyNavigationOptions = {
-    headerTitle:  <SearchBar
-                round
-                lightTheme
-                cancelButtonTitle="Cancel"
-                containerStyle={{backgroundColor: "transparent", flex: 1, marginHorizontal: 10,  borderBottomColor: 'transparent', borderTopColor: 'transparent'}}
-                inputContainerStyle={{backgroundColor: "white", height: 30, borderColor: "transparent", borderWidth: 0}}
-             />        
-}
