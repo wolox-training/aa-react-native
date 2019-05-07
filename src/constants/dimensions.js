@@ -6,6 +6,7 @@ export const BIG_IMAGE_HEIGHT = 105;
 
 export const BUTTON_HEIGHT = 40;
 export const BORDER_WIDTH = 1;
+export const PLACE_HOLDER_DIM = 50;
 
 export const SPACING_VERY_SMALL = 10;
 export const SPACING_SMALL = 15

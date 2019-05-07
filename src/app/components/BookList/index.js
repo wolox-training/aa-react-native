@@ -24,7 +24,7 @@ renderItem = ({item}) => {
         data={books} 
         renderItem={this.renderItem} 
         keyExtractor={this.keyExtractor} 
-        contentContainerStyle={(!books || !books.length) ? styles.noList : styles.container}
+        contentContainerStyle={[styles.container, (!books || !books.length) && styles.noList]}
         ListEmptyComponent={listEmptyComponent}
       />
     );

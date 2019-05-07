@@ -12,6 +12,5 @@ export default StyleSheet.create({
     container,
     noList:{
       flex: 1,
-      ...container
     }
   });
