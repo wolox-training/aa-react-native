@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { gray, black, backgroundColor } from '../../../constants/colors';
 import { BOLD, SMALL } from '../../../constants/fontSizes';
-import { SPACING_MEDIUM, SPACING_SMALL, SPACING_EXTRA_BIG } from '../../../constants/dimensions';
+import { SPACING_MEDIUM, SPACING_SMALL, SPACING_EXTRA_BIG, PLACE_HOLDER_DIM } from '../../../constants/dimensions';
 
 const text = {
     color: gray,
@@ -18,12 +18,11 @@ export default StyleSheet.create({
     image: {
         marginBottom: SPACING_MEDIUM,
         marginTop: SPACING_EXTRA_BIG,
-        height: 50,
-        width: 50
+        height: PLACE_HOLDER_DIM,
+        width: PLACE_HOLDER_DIM
     },
     text,
     title:{
-        ...text,
         color: black,
         fontWeight: BOLD,
         marginBottom: SPACING_SMALL
