@@ -12,6 +12,8 @@ import { white } from '../constants/colors';
 import { MEDIUM, BOLD } from '../constants/fontSizes';
 import { LIBRARY, BOOK_DETAIL, DUMMY } from '../constants/titles';
 import TabBarIcon from '../app/components/TabBarIcon';
+import SearchButton from '../app/components/SearchButton';
+import SearchBar from '../app/components/SearchBar';
 
 export const defaultNavigationOptions = {
     headerStyle: {height: HEADER_HEIGHT, width: '100%', backgroundColor: 'transparent'},
@@ -28,7 +30,8 @@ export const bookDetailNavigationOptions = {
 export const bookListNavigationOptions = {
     title: LIBRARY,
     tabBarLabel: LIBRARY,
-    tabBarIcon: ({focused}) => <TabBarIcon focused={focused}  inactiveIcon={libraryIcon} activeIcon={libraryActiveIcon}/>
+    tabBarIcon: ({focused}) => <TabBarIcon focused={focused}  inactiveIcon={libraryIcon} activeIcon={libraryActiveIcon}/>,
+    headerRight: <SearchButton/>
   };
 
 export const dummyNavigationOptions = {
@@ -45,4 +48,6 @@ export const noHeaderNavigationOptions = {
     header: null
 };
 
-
+export const searchNavigationOptions = {
+    headerTitle: <SearchBar/>   
+};

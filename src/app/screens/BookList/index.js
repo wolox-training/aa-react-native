@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Text } from 'react-native';
 
-import BookList from './layout';
+import BookList from './../../components/BookList';
+import styles from './styles';
 
 import BooksActions from '../../../redux/books/actions';
 import { BookDetail } from '../../../constants/routes';
+import { NO_BOOKS } from '../../../constants/errors';
 
 class BookListContainer extends Component {
 
@@ -19,8 +22,11 @@ class BookListContainer extends Component {
     }
 
     render() {
+        const { getBooksErrorMessage } = this.props;
+        const errorMessage = !getBooksErrorMessage ?  NO_BOOKS : getBooksErrorMessage;
+        const emptyLibrary = <Text style={styles.errorMessage}>{errorMessage}</Text>;
         return (
-            <BookList onPressBook={this.handlePressBook} {...this.props}/>
+            <BookList onPressBook={this.handlePressBook} listEmptyComponent={emptyLibrary} {...this.props}/>
         );
     }
 
