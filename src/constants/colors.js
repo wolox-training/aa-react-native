@@ -9,3 +9,4 @@ export const skyBlue = '#00ADEE';
 export const red = '#D0012B';
 export const blue = '#288CCB';
 export const green = '#A5CD39';
+export const cian = '#38CCCD';

@@ -52,7 +52,7 @@ export default StyleSheet.create({
         borderWidth: BORDER_WIDTH,
         borderColor: skyBlue,
         marginBottom: SPACING_VERY_SMALL
-    },
+    }, button,
     rent: {
         ...button,
         backgroundColor: skyBlue,
@@ -75,6 +75,7 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     animatedRentedButton: {
+        borderRadius: RADIUS_BIG,
         backgroundColor: 'transparent'
     },
     animatedRentButton: { 
