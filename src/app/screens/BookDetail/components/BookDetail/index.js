@@ -48,14 +48,12 @@ class BookDetail extends Component{
                     <TouchableOpacity style={styles.addToWishList} >
                         <Text style={styles.addToWishListText}>ADD TO WISH LIST</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.button]} onPress={this.handleOnPressRent}>
-                        {!isRented && (<LinearGradient colors={[skyBlue, cian]}  start={{x: 0, y: 0}} end={{x: 1, y: 0}} style={[styles.button]}>
-                            <Text style={styles.rentText}>RENT</Text>
-                        </LinearGradient>)}
-
-                        {isRented && (<Animated.View style={[styles.button, styles.animatedRentButton, { height: animated, maxWidth: animated}]}>
-                            {isRented && <Icon name='md-checkmark' type='ionicon' color={ white }/>}
-                        </Animated.View>)}
+                    <TouchableOpacity style={[styles.rent, isRented && styles.animatedRentedButton]} onPress={this.handleOnPressRent}>
+                        {!isRented && <Text style={styles.rentText}>RENT</Text>}
+                        {isRented && (
+                            <Animated.View style={[styles.button, styles.animatedRentButton, { height: animated, maxWidth: animated}]}>
+                                <Icon name='md-checkmark' type='ionicon' color={ white }/>
+                            </Animated.View>)}
                     </TouchableOpacity>
                 </View>
             </View>
