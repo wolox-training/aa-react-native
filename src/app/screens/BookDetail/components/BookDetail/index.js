@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity, Animated, Easing } from 'react-native';
+import { Icon } from 'react-native-elements'
+
+
 import styles from './styles';
 import  defaultImage from '../../../../assets/img_book6.png';
+import { white } from '../../../../../constants/colors';
 
 
 class BookDetail extends Component{
@@ -13,7 +17,7 @@ class BookDetail extends Component{
         const { animated } = this.state;
         Animated.timing(animated, {
           toValue: 40,
-          duration: 1000
+          duration: 800
         }).start();
     };
 
@@ -24,12 +28,10 @@ class BookDetail extends Component{
         }
         this.animateRentButton();
     };
-    //transform: [{ scaleX: animated }] 
-    //scale: animated.interpolate({intputRange: [0, 1], outputRange:[0, 1]}) 
-    //{aux.map(value => <Text key={value} style={styles.text}>{value}</Text>)}
+
     render() {
-    const aux = [author, year, type];
     const { title, author, imageSource, year, type } = this.props;
+    const aux = [author, year, type];
     const { isRented, animated } = this.state;
     return (
             <View style={styles.container}>
@@ -38,7 +40,7 @@ class BookDetail extends Component{
                     <View style={styles.infoContainer}>
                         <Text style={styles.title} numberOfLines={1}>{title}</Text>
                         <View style={styles.dataContainer}>
-                            
+                        {aux.map(value => <Text key={value} style={styles.text}>{value}</Text>)}
                         </View>
                     </View>
                 </View>
@@ -46,9 +48,10 @@ class BookDetail extends Component{
                     <TouchableOpacity style={styles.addToWishList} >
                         <Text style={styles.addToWishListText}>ADD TO WISH LIST</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.rent, isRented && {backgroundColor: 'transparent'}]} onPress={this.handleOnPressRent}>
-                            <Animated.View style={[styles.rent, isRented && { backgroundColor: "green" }, isRented&&{ height: animated, maxWidth: animated}]}>
-                                <Text style={styles.rentText}>RENT</Text>
+                    <TouchableOpacity style={[styles.rent, isRented && styles.animatedRentedButton]} onPress={this.handleOnPressRent}>
+                            <Animated.View style={[styles.rent, isRented && styles.animatedRentButton, isRented && { height: animated, maxWidth: animated}]}>
+                                {!isRented && <Text style={styles.rentText}>RENT</Text>}
+                                {isRented && <Icon name='md-checkmark' type='ionicon' color={ white }/>}
                             </Animated.View>
                     </TouchableOpacity>
                 </View>

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { white, darkGray, gray, skyBlue } from '../../../../../constants/colors';
+import { white, darkGray, gray, skyBlue, green } from '../../../../../constants/colors';
 import { SMALL, LARGE, BOLD } from '../../../../../constants/fontSizes';
 import { BUTTON_HEIGHT, SPACING_MEDIUM, SPACING_BIG, RADIUS_SMALL, RADIUS_BIG, SPACING_VERY_SMALL, BIG_IMAGE_WIDTH, BIG_IMAGE_HEIGHT, SPACING_SMALL, BORDER_WIDTH} from '../../../../../constants/dimensions';
 import { containerShadow } from '../../../../../constants/shadows';
@@ -73,6 +73,12 @@ export default StyleSheet.create({
     buttonsContainer: {
         paddingTop: SPACING_BIG,
         alignItems: 'center'
+    },
+    animatedRentedButton: {
+        backgroundColor: 'transparent'
+    },
+    animatedRentButton: { 
+        backgroundColor: green
     }
 });
 
