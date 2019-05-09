@@ -6,6 +6,7 @@ export const lightGray = '#D5D5D7';
 export const white = '#FFF';
 export const backgroundColor = '#E9F5F9';
 export const skyBlue = '#00ADEE';
-export const red = "red";
+export const red = '#D0012B';
 export const blue = '#288CCB';
-
+export const green = '#A5CD39';
+export const cian = '#38CCCD';
