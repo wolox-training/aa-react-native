@@ -8,7 +8,6 @@ export default StyleSheet.create({
     container: {
         flex: 1,    
         backgroundColor: backgroundColor,
-        justifyContent: 'center'
     },
     slide: {
         flex: 1,
