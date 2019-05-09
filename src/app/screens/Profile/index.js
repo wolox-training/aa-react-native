@@ -1,30 +1,28 @@
-import React from 'react';
-import { View } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+import Profile from './layout';
 import BookPreview from './components/BookPreview';
-import UserCard from './components/UserCard';
 
-import styles from './styles';
+class ProfileContainer extends Component {
 
-function Profile () {
+    renderItem ({item, index}) {
+        return (
+          <BookPreview name={item.title} author={item.author} imageSource={item.imageSource}/>
+        );
+    }
 
-  
-    return (
-      <View style={styles.container}>
-        <UserCard firstName={'Alejo'} lastName={'Aquili'}/>
+    render() {
+        const { isLoading, currentUser } = this.props;
+        return (
+            <Profile isLoading={isLoading} currentUser={currentUser} renderItem={this.renderItem}/>
+        );
+    }
+}
 
-        <Carousel
-              data={this.state.entries}
-              renderItem={({item, index}) => {<BookPreview name={item.name}/>}}
-              sliderWidth={'100%'}
-              itemWidth={'100%'}
-        />
-        <BookPreview name={'Nombre'} author={'Autor'} onPress={() => {console.warn('Presione')}}/>
+const mapStateToProps = state => ({
+    currentUser: state.auth.currentUser,
+    isLoading: state.auth.currentUserLoading
+});
 
-      </View>
-    )
-  };
-
-export default Profile;
-  
+export default connect(mapStateToProps)(ProfileContainer);

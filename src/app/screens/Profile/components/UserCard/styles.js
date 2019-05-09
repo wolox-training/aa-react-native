@@ -8,11 +8,12 @@ import { SPACING_MEDIUM, SPACING_VERY_SMALL } from '../../../../../constants/dim
 export default StyleSheet.create({
     container: {
         flex:1,
+        height: '100%',
         alignItems: 'center',
         backgroundColor: white,
         padding: SPACING_VERY_SMALL,
-        margin: SPACING_MEDIUM,
-        marginBottom: SPACING_VERY_SMALL
+        marginHorizontal: SPACING_MEDIUM,
+        marginVertical: SPACING_VERY_SMALL
     },
     text: {
         fontSize: MEDIUM,

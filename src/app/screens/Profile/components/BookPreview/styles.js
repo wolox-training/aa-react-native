@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { SMALL, MEDIUM, BOLD } from '../../../../../constants/fontSizes';
 import { darkGray, gray, white } from '../../../../../constants/colors';
-import { SPACING_MEDIUM, BIG_IMAGE_HEIGHT, BIG_IMAGE_WIDTH, SPACING_VERY_SMALL } from '../../../../../constants/dimensions';
+import { SPACING_MEDIUM, BIG_IMAGE_HEIGHT, BIG_IMAGE_WIDTH, SPACING_VERY_SMALL, SPACING_SMALL } from '../../../../../constants/dimensions';
 
 
 export default StyleSheet.create({
@@ -18,12 +18,12 @@ export default StyleSheet.create({
         fontSize: MEDIUM,
         color: darkGray,
         fontWeight: BOLD,
-        marginVertical: SPACING_MEDIUM
+        marginVertical: SPACING_SMALL
     },
     author: {
         fontSize: SMALL,
         color: gray,
-        marginBottom: SPACING_VERY_SMALL
+        marginBottom: SPACING_SMALL
     },
     image: {
         width: BIG_IMAGE_WIDTH, 
