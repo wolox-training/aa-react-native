@@ -23,9 +23,7 @@ class BookDetail extends Component{
 
     handleOnPressRent = () => {
         const { isRented } = this.state;
-        if(! isRented) {
-            this.setState({isRented: true});
-        }
+        if(!isRented) this.setState({isRented: true});
         this.animateRentButton();
     };
 
