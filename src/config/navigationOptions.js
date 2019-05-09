@@ -10,7 +10,7 @@ import BackButton from '../app/components/BackButton';
 import { HEADER_HEIGHT } from '../constants/platform';
 import { white } from '../constants/colors';
 import { MEDIUM, BOLD } from '../constants/fontSizes';
-import { LIBRARY, BOOK_DETAIL, DUMMY } from '../constants/titles';
+import { LIBRARY, BOOK_DETAIL, PROFILE } from '../constants/titles';
 import TabBarIcon from '../app/components/TabBarIcon';
 import SearchButton from '../app/components/SearchButton';
 import SearchBar from '../app/components/SearchBar';
@@ -34,9 +34,9 @@ export const bookListNavigationOptions = {
     headerRight: <SearchButton/>
   };
 
-export const dummyNavigationOptions = {
-      title: DUMMY,
-      tabBarLabel: DUMMY,
+export const profileNavigationOptions = {
+      title: PROFILE,
+      tabBarLabel: PROFILE,
       tabBarIcon: ({focused}) => <TabBarIcon focused={focused}  inactiveIcon={settingsIcon} activeIcon={settingsActiveIcon}/>
 }
 

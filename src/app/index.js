@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import BookList from './screens/BookList';
 import BookDetail from './screens/BookDetail';
-import Dummy from './screens/Dummy';
+import Profile from './screens/Profile';
 import Search from './screens/Search';
 
 import * as Routes from '../constants/routes';
@@ -28,9 +28,9 @@ const StackNavigator = createStackNavigator({
           screen: BookList,
           navigationOptions: NavigationOptions.bookListNavigationOptions
         },
-        [Routes.Dummy]: {
-          screen: Dummy,
-          navigationOptions: NavigationOptions.dummyNavigationOptions
+        [Routes.Profile]: {
+          screen: Profile,
+          navigationOptions: NavigationOptions.profileNavigationOptions
         }
       }),
       navigationOptions: NavigationOptions.childTabsNavigationOptions
