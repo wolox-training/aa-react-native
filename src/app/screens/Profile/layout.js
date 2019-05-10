@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
 import UserCard from './components/UserCard';
@@ -20,7 +20,8 @@ class Profile extends PureComponent {
     const { currentUser, renderItem } = this.props;
     return (
         <ScrollView style={styles.container}>
-            <UserCard firstName={currentUser.data.first_name} lastName={currentUser.data.last_name}></UserCard>
+            <UserCard firstName={currentUser.data.first_name} lastName={currentUser.data.last_name}/>
+            <Text style={styles.text}> Suggestions</Text> 
             <Carousel
               ref={(c) => { this.carousel = c; }}
               data={entries}

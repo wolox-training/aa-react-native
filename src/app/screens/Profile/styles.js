@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { backgroundColor, darkGray } from '../../../constants/colors';
 import { MEDIUM, BOLD } from '../../../constants/fontSizes';
-import { SPACING_MEDIUM, SPACING_VERY_SMALL } from '../../../constants/dimensions';
+import { SPACING_SMALL } from '../../../constants/dimensions';
 
 export default StyleSheet.create({
     container: {
@@ -15,5 +15,11 @@ export default StyleSheet.create({
     },
     contentContainer: {
         justifyContent: 'center'
-    }
+    },
+    text: {
+        fontSize: MEDIUM,
+        color: darkGray,
+        fontWeight: BOLD,
+        margin: SPACING_SMALL
+    },
 });
