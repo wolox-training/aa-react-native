@@ -28,17 +28,17 @@ class BookDetail extends Component{
     };
 
     render() {
-    const { title, author, imageSource, year, type } = this.props;
-    const aux = [author, year, type];
-    const { isRented, animated } = this.state;
-    return (
+        const { title, author, imageSource, year, type } = this.props;
+        const aux = [author, year, type];
+        const { isRented, animated } = this.state;
+        return (
             <View style={styles.container}>
                 <View style={styles.bookContainer}>
                     <Image style={styles.image} resizeMode="cover" source={imageSource||defaultImage}></Image>
                     <View style={styles.infoContainer}>
                         <Text style={styles.title} numberOfLines={1}>{title}</Text>
                         <View style={styles.dataContainer}>
-                        {aux.map(value => <Text key={value} style={styles.text}>{value}</Text>)}
+                            {aux.map(value => <Text key={value} style={styles.text}>{value}</Text>)}
                         </View>
                     </View>
                 </View>
@@ -46,8 +46,11 @@ class BookDetail extends Component{
                     <TouchableOpacity style={styles.addToWishList} >
                         <Text style={styles.addToWishListText}>ADD TO WISH LIST</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.rent, isRented && styles.animatedRentedButton]} onPress={this.handleOnPressRent}>
-                        {!isRented && <Text style={styles.rentText}>RENT</Text>}
+                    <TouchableOpacity style={styles.button} onPress={this.handleOnPressRent}>
+                        {!isRented && (
+                        <LinearGradient colors={[skyBlue, cian]}  start={{x: 0, y: 0}} end={{x: 1, y: 0}} style={styles.button}>
+                            <Text style={styles.rentText}>RENT</Text>
+                        </LinearGradient>)}
                         {isRented && (
                             <Animated.View style={[styles.button, styles.animatedRentButton, { height: animated, maxWidth: animated}]}>
                                 <Icon name='md-checkmark' type='ionicon' color={ white }/>
@@ -56,7 +59,7 @@ class BookDetail extends Component{
                 </View>
             </View>
         );
-    }
+    }   
 }
 
 export default BookDetail;
